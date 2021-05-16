@@ -26,7 +26,7 @@ export default class MoviesController{
             page: page,
             filters: filters,
             entriesPerPage: entriesPerPage,
-            numGrades: numMovies
+            numMovies: numMovies
         }
         res.json(response)
     }
