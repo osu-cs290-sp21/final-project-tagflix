@@ -3,12 +3,12 @@
 How to get api working:
 make sure you have node js and node package manager installed
 if you do not have nodemon installed paste:
-"npm install -g nodemon"
+```npm install -g nodemon```
 
 using command line or terminal:
-1. navigate to backend folder
-2. type "npm install" this will install all of our dependencies
-3. type "nodemon server" You should recieve a message saying ```listening on port <portnumber>```
+1. navigate to ```backend``` folder
+2. type ```npm install``` this will install all of our dependencies
+3. type ```nodemon server``` You should recieve a message saying ```listening on port <portnumber>```
 4. go to http://localhost:<your_port_number>/api/v1/movies/
 
 This should display an array of movie objects sorted by most recent year
