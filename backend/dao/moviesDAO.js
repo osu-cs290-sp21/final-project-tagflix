@@ -35,7 +35,7 @@ export default class MoviesDAO{
 
         try{
             cursor = await movies
-            .find(query, {projection: {_id:0, year:1, directors:1, "imdb.rating":1, title: 1}})
+            .find(query)
             .sort([["year", -1]])
         }catch(e){
             console.error(`Unable to issue find command ${e}`)
