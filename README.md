@@ -13,7 +13,7 @@ using command line or terminal:
 
 This should display an array of movie objects sorted by most recent year
 
-api commands:
+# api commands:
 
 This api will only show 20 movies at a time to see the next page of movies use
 
@@ -32,7 +32,7 @@ To search movies by title use:
 http://localhost:5000/api/v1/movies?title=<your_title>
 
 
-how to use the review api:
+# how to use the review api:
 
 NOTE for testing this I reccomend Insomnia : https://insomnia.rest/
 
@@ -77,7 +77,9 @@ send a get request to:
 http://localhost:5000/api/v1/movies/id/<MongoDB_movie_id>
 
 
-To update the tags of a movie send a put request to:
+# To update the tags of a movie 
+
+send a put request to:
 
 http://localhost:5000/api/v1/movies/tags
 
