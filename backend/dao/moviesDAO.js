@@ -106,4 +106,15 @@ export default class MoviesDAO{
         } 
       } 
 
+      static async addTags(movieId, tags) { 
+        try {  
+          return await movies.updateOne(
+            {_id: ObjectId(movieId) },
+            { $addToSet: { "tags": {$each: tags} } }
+         ) // uploads it to the database 
+        } catch (e) { 
+            console.error(`Unable to update tags: ${e}`) 
+            return { error: e } 
+          } 
+      } 
 }

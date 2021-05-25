@@ -67,7 +67,7 @@ http://localhost:5000/api/v1/movies/review?id=<mongoDB_review_id>
 with the json fomatted like so:
 
 {
-	"user_id": "<your user ID",
+	"user_id": "<your user ID>",
 	"name": "<your_user_name>"
 }
 
@@ -75,3 +75,17 @@ to recieve all reviews for a particular movie:
 
 send a get request to:
 http://localhost:5000/api/v1/movies/id/<MongoDB_movie_id>
+
+
+To update the tags of a movie send a put request to:
+
+http://localhost:5000/api/v1/movies/tags
+
+with the json fomatted like so:
+
+{
+	"movie_id": "<mongoDB_movie_ID>",
+	"tags": ["<tag_1>", "<tag_2>", <tag_n>"]
+}
+
+Note this will only update the database with tags that are not already in the array.

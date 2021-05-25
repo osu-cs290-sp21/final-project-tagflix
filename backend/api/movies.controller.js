@@ -47,4 +47,28 @@ export default class MoviesController{
           res.status(500).json({ error: e }) 
         } 
       } 
+
+      static async apiAddTag(req, res, next) { 
+        try { //before we got information from the query parameter but now we are getting information from the body of the request 
+          const movieId = req.body.movie_id 
+          const tags = req.body.tags 
+          const reviewResponse = await moviesDAO.addTags(
+            movieId, 
+            tags
+          ) 
+          var { error } = reviewResponse 
+          if (error) { 
+            res.status(400).json({ error }) 
+          } 
+          if (reviewResponse.modifiedCount === 0) { // if modified count == 0 that means that the review was not updated and we can throw an error 
+            throw new Error( 
+              "unable to update tags - user may not be original poster", 
+            ) 
+          } 
+          res.json({ status: "success" }) 
+        } catch (e) { 
+          res.status(500).json({ error: e.message }) 
+        } 
+
+    }
 }

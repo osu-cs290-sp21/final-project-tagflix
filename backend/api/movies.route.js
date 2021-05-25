@@ -15,6 +15,10 @@ router
    .put(ReviewsCtrl.apiUpdateReview)
    .delete(ReviewsCtrl.apiDeleteReview)
 
-
+router
+   .route('/tags')
+   .put(MoviesCtrl.apiAddTag)
+   //.put(ReviewsCtrl.apiUpdateReview)
+   //.delete(ReviewsCtrl.apiDeleteReview)
 
 export default router
