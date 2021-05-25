@@ -14,6 +14,9 @@ export default class MoviesController{
         else if(req.query.IMDB){
             filters.IMDB = parseFloat(req.query.IMDB)
         }
+        else if (req.query.title) { 
+            filters.title = req.query.title 
+          } 
 
         const{moviesList, numMovies} = await moviesDAO.getMovies({
             filters,
@@ -26,7 +29,7 @@ export default class MoviesController{
             page: page,
             filters: filters,
             entriesPerPage: entriesPerPage,
-            numGrades: numMovies
+            numMovies: numMovies
         }
         res.json(response)
     }

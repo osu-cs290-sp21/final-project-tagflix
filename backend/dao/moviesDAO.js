@@ -30,7 +30,10 @@ export default class MoviesDAO{
             else if ("IMDB" in filters){
                 query  = {"imdb.rating" : { $gt: filters["IMDB"] } }
             }
-        }
+            else if ("title" in filters) { // allows us to sort by name cuisine and zipcode fo teh restaurant notice that unlike the others there is no database field here 
+                query = { $text: { $search: filters["title"] } } // anywhere in the text we will search for name 
+            }
+    }
         let cursor
 
         try{
