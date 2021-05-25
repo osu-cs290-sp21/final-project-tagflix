@@ -43,8 +43,8 @@ to post a review send a post request with the json fomatted like so:
 
 {
 	"movie_id": "<mongoDB_movie_ID>",
-	"text": "<the _ review>",
-	"user_id": "<your user ID>",
+	"text": "<the_review>",
+	"user_id": "<your_user_ID>",
 	"name": "<your_user_name>"
 }
 
@@ -53,8 +53,8 @@ NOTE: must be the name user who posted the review
 
 {
 	"review_id": "<mongoDB_movie_ID>",
-	"text": "<the _ review>",
-	"user_id": "<your user ID>",
+	"text": "<the_review>",
+	"user_id": "<your_user_ID>",
 	"name": "<your_user_name>"
 }
 
