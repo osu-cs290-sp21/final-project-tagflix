@@ -67,7 +67,7 @@ http://localhost:5000/api/v1/movies/review?id=<mongoDB_review_id>
 with the json fomatted like so:
 
 {
-	"user_id": "<your user ID>",
+	"user_id": "<your_user_ID>",
 	"name": "<your_user_name>"
 }
 
