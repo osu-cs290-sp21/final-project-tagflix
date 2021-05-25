@@ -42,13 +42,14 @@ use the url http://localhost:5000/api/v1/movies/review
 to post a review send a post request with the json fomatted like so:
 
 {
-	"movie__id": "<mongoDB_movie_ID>",
+	"movie_id": "<mongoDB_movie_ID>",
 	"text": "<the _ review>",
 	"user_id": "<your user ID>",
 	"name": "<your_user_name>"
 }
 
 to update a review send a put request with the json fomatted like so:
+NOTE: must be the name user who posted the review
 
 {
 	"review_id": "<mongoDB_movie_ID>",
@@ -58,6 +59,9 @@ to update a review send a put request with the json fomatted like so:
 }
 
 to delete a review send a delete request to the url:
+NOTE: must be the name user who posted the review
+
+
 http://localhost:5000/api/v1/movies/review?id=<mongoDB_review_id>
 
 with the json fomatted like so:
@@ -66,3 +70,8 @@ with the json fomatted like so:
 	"user_id": "<your user ID",
 	"name": "<your_user_name>"
 }
+
+to recieve all reviews for a particular movie:
+
+send a get request to:
+http://localhost:5000/api/v1/movies/id/<MongoDB_movie_id>

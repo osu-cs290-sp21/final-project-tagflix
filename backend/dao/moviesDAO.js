@@ -1,3 +1,6 @@
+import mongodb from "mongodb"
+const ObjectId = mongodb.ObjectID
+
 let movies
 export default class MoviesDAO{
     
@@ -30,10 +33,10 @@ export default class MoviesDAO{
             else if ("IMDB" in filters){
                 query  = {"imdb.rating" : { $gt: filters["IMDB"] } }
             }
-            else if ("title" in filters) { // allows us to sort by name cuisine and zipcode fo teh restaurant notice that unlike the others there is no database field here 
+            else if ("title" in filters) { 
                 query = { $text: { $search: filters["title"] } } // anywhere in the text we will search for name 
             }
-    }
+         }
         let cursor
 
         try{
@@ -56,6 +59,51 @@ export default class MoviesDAO{
             return{moviesList: [], numMovies: 0}
         }
 
-
+        
     }
+
+    static async getMovieByID(id) { //we are trying to get the reviews from one collection and put them into the movie 
+        try { 
+          const pipeline = [ //this pipeline will help us match collections together 
+            { 
+                $match: { 
+                    _id: new ObjectId(id), 
+                }, 
+            }, 
+                  { 
+                      $lookup: { 
+                          from: "reviews", //from the reviews collection 
+                          let: { 
+                              id: "$_id", 
+                          }, 
+                          pipeline: [ 
+                              { 
+                                  $match: { 
+                                      $expr: { 
+                                          $eq: ["$movie_id", "$$id"],//we will find all of the reviews which = the movie id 
+                                      }, 
+                                  }, 
+                              }, 
+                              { 
+                                  $sort: { 
+                                      date: -1, 
+                                  }, 
+                              }, 
+                          ], 
+                          as: "reviews", 
+                      }, 
+                  }, 
+                  { 
+                      $addFields: { 
+                          reviews: "$reviews", 
+                      }, 
+                  }, 
+              ] 
+          return await movies.aggregate(pipeline).next() //put the two together and return that 
+        } catch (e) { 
+          console.error(`Something went wrong in getMovieByID: ${e}`) 
+          throw e 
+        } 
+      } 
+
 }
