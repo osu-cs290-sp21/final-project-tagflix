@@ -49,7 +49,7 @@ to post a review send a post request with the json fomatted like so:
 }
 
 to update a review send a put request with the json fomatted like so:
-NOTE: must be the name user who posted the review
+NOTE: must be the name and user_id who posted the review
 
 {
 	"review_id": "<mongoDB_movie_ID>",
