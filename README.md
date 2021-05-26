@@ -36,6 +36,9 @@ To search movies by genre use:
 
 http://localhost:5000/api/v1/movies?genre=<your_genre>
 
+To search movies by tag use:
+
+http://localhost:5000/api/v1/movies?tag=<your_tag>
 
 # how to use the review api:
 

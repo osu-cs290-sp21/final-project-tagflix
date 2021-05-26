@@ -30,6 +30,9 @@ export default class MoviesDAO{
             else if("genre" in filters){
                 query = { "genres": filters["genre"] } 
             }
+            else if("tag" in filters){
+                query = { "tags": filters["tag"] } 
+            }
             else if("year_range" in filters){
                 query = {"year": {"$gte":filters["year_range"][0], "$lte":filters["year_range"][1]}}
             }
