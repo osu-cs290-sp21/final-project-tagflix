@@ -77,4 +77,24 @@ export default class MoviesController{
         } 
 
     }
+
+    static async apiGetMovieGenres(req, res, next) { 
+      try { 
+        let genres = await moviesDAO.getGenres() // returns list of genres
+        res.json(genres) 
+      } catch (e) { 
+        console.log(`api, ${e}`) 
+        res.status(500).json({ error: e }) 
+      } 
+    }
+
+    static async apiGetMovieTags(req, res, next) { 
+      try { 
+        let tags = await moviesDAO.getTags() // returns list of tags
+        res.json(tags) 
+      } catch (e) { 
+        console.log(`api, ${e}`) 
+        res.status(500).json({ error: e }) 
+      } 
+    }
 }

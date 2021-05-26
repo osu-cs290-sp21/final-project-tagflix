@@ -40,6 +40,15 @@ To search movies by tag use:
 
 http://localhost:5000/api/v1/movies?tag=<your_tag>
 
+Return an array listing all the genres:
+
+http://localhost:5000/api/v1/movies/genres
+
+Return an array listing all the tags:
+
+http://localhost:5000/api/v1/movies/tags
+
+
 # how to use the review api:
 
 NOTE for testing this I reccomend Insomnia : https://insomnia.rest/

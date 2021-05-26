@@ -123,4 +123,26 @@ export default class MoviesDAO{
             return { error: e } 
           } 
       } 
+      
+      static async getGenres() { 
+        let genres = [] 
+        try { 
+            genres = await movies.distinct("genres") // get all the distinct cuisine values 
+          return genres 
+        } catch (e) { 
+          console.error(`Unable to get genres, ${e}`) 
+          return genres 
+        } 
+      }
+
+      static async getTags() { 
+        let tags = [] 
+        try { 
+            tags = await movies.distinct("tags") // get all the distinct cuisine values 
+          return tags 
+        } catch (e) { 
+          console.error(`Unable to get tags, ${e}`) 
+          return tags 
+        } 
+      }
 }
