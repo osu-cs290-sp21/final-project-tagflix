@@ -32,6 +32,10 @@ To search movies by title use:
 
 http://localhost:5000/api/v1/movies?title=<your_title>
 
+To search movies by genre use:
+
+http://localhost:5000/api/v1/movies?genre=<your_genre>
+
 
 # how to use the review api:
 

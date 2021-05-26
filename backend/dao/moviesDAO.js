@@ -27,8 +27,11 @@ export default class MoviesDAO{
             if("directors" in filters){
                 query = {"directors": filters["directors"]}
             }
+            else if("genre" in filters){
+                query = { "genres": filters["genre"] } 
+            }
             else if("year_range" in filters){
-                query = {"year": {"$gt":filters["year_range"][0], "$lt":filters["year_range"][1]}}
+                query = {"year": {"$gte":filters["year_range"][0], "$lte":filters["year_range"][1]}}
             }
             else if ("IMDB" in filters){
                 query  = {"imdb.rating" : { $gt: filters["IMDB"] } }
