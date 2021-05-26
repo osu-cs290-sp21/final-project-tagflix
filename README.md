@@ -41,22 +41,22 @@ use the url http://localhost:5000/api/v1/movies/review
 
 to post a review send a post request with the json fomatted like so:
 
-{
+```{
 	"movie_id": "<mongoDB_movie_ID>",
 	"text": "<the_review>",
 	"user_id": "<your_user_ID>",
 	"name": "<your_user_name>"
-}
+}```
 
 to update a review send a put request with the json fomatted like so:
 NOTE: must be the name and user_id of the person who posted the review
 
-{
+```{
 	"review_id": "<mongoDB_movie_ID>",
 	"text": "<the_review>",
 	"user_id": "<your_user_ID>",
 	"name": "<your_user_name>"
-}
+}```
 
 to delete a review send a delete request to the url:
 NOTE: must be the name user who posted the review
@@ -66,10 +66,10 @@ http://localhost:5000/api/v1/movies/review?id=<mongoDB_review_id>
 
 with the json fomatted like so:
 
-{
+```{
 	"user_id": "<your_user_ID>",
 	"name": "<your_user_name>"
-}
+}```
 
 to recieve all reviews for a particular movie:
 
@@ -85,9 +85,9 @@ http://localhost:5000/api/v1/movies/tags
 
 with the json fomatted like so:
 
-{
+```{
 	"movie_id": "<mongoDB_movie_ID>",
 	"tags": ["<tag_1>", "<tag_2>", <tag_n>"]
-}
+}```
 
 Note this will only update the database with tags that are not already in the array.
