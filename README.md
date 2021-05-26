@@ -65,7 +65,8 @@ NOTE: must be the name and user_id of the person who posted the review
 ```
 
 to delete a review send a delete request to the url:
-NOTE: must be the name user who posted the review
+
+NOTE: must be the name and user_id of the person who posted the review
 
 
 http://localhost:5000/api/v1/movies/review?id=<mongoDB_review_id>
