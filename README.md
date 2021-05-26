@@ -25,6 +25,7 @@ http://localhost:5000/api/v1/movies?year_range=<year_1>_<year_2>
 
 
 To find movies above a certain IMDB rating use:
+
 http://localhost:5000/api/v1/movies?IMDB=<your_min_score>
 
 To search movies by title use:
@@ -51,6 +52,7 @@ to post a review send a post request with the json fomatted like so:
 ```
 
 to update a review send a put request with the json fomatted like so:
+
 NOTE: must be the name and user_id of the person who posted the review
 
 ```
