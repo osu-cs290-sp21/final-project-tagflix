@@ -8,11 +8,30 @@ a {
   text-decoration: none;
 }
 
+header {
+  padding-top: 10px;
+  background-color: white;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 3em;
+  height: 3em;
+  transform: rotate(-15deg);
+  margin-right: 10px;
+}
+
 .site-title {
+  display: inline;
   text-align: center;
   text-decoration: none;
   font-size: 50px;
-  margin: 10px auto 5px;
+  margin: 0 auto 5px;
 }
 
 .navbar {
@@ -27,6 +46,11 @@ a {
 .navitem {
   display: inline;
   margin: 0 20px;
+}
+
+.navlist a:hover {
+  border-bottom: 2px solid red;
+  box-shadow: 1px 5px 10px -7px #ED2D2D;
 }
 
 #search-container {
@@ -52,6 +76,16 @@ a {
   background-color: white;
 }
 
+#main-search-button {
+  background-color: none;
+}
+
+.search-icon {
+  width: 30px;
+  height: 30px;
+  color: text;
+}
+
 .movie-container-label{
   margin: 20px auto;
   text-align: center;
@@ -61,16 +95,20 @@ a {
 }
 
 .movie-container {
-  width: 80%;
+  width: 90%;
   height: 80%;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: space-between;
 }
 
 .movie {
   display: flex;
   flex-direction: column;
+  width: 25%;
+  margin: 20px 20px 10px 20px;
+
 }
 
 .movie h3 {
@@ -82,6 +120,10 @@ a {
   box-shadow: 12px 12px 5px 0px rgba(137, 137, 143, 0.44);
   border: 1.5px solid black;
   border-radius: 5px;
+  width: 100%;
+}
+.movie a {
+
 }
 
 .movie img:hover {
