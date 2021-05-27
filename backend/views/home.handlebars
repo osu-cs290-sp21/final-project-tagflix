@@ -1,0 +1,11 @@
+<div id="search-container">
+  <input type="text" id="main-search-input" placeholder=" Search...">
+  <button type="button" id="main-search-button"><img class="search-icon" src="https://static.thenounproject.com/png/1047226-200.png"></button>
+</div>
+
+<h2 class="movie-container-label">Showing Currently</h2>
+<main class="movie-container">
+  {{#each movies}}
+    {{> movie}}
+  {{/each}}
+</main>
