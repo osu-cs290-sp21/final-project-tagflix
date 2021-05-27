@@ -35,7 +35,7 @@ function getHomeContent(obj) {
 
 app.get('/', async function (req, res) {
   var data = await moviesDAO.getMovies({
-      "page": 1,
+      "page": 0,
       "entriesPerPage": 30
   })
 
