@@ -1,6 +1,13 @@
 # final-project-tagflix
 
-How to get api working:
+# frontend
+
+to load the frontend use the url
+
+http://localhost:5000/
+
+
+# How to get api working:
 make sure you have node js and node package manager installed
 if you do not have nodemon installed paste:
 ```npm install -g nodemon```
