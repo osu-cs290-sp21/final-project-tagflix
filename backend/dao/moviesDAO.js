@@ -20,7 +20,7 @@ export default class MoviesDAO{
     static async getMovies({ // default values
         filters = null,
         page = 0,
-        entriesPerPage = 20
+        entriesPerPage = 30
     } = {}){
         let query
         if(filters){
