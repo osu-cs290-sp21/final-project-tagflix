@@ -18,7 +18,7 @@ export default class MoviesController{
             filters.title = req.query.title.replace("_", " ")
           }
         else if (req.query.genre){
-            filters.genre = req.query.genre
+            filters.genre = req.query.genre.split("_")
         }
         else if (req.query.tag){
             filters.tag = req.query.tag
