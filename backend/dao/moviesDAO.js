@@ -40,15 +40,24 @@ export default class MoviesDAO{
                 query  = {"imdb.rating" : { $gt: filters["IMDB"] } }
             }
             else if ("title" in filters) { 
-                query = { $text: { $search: filters["title"] } } // anywhere in the text we will search for name 
+                query = { $text: { $search: filters["title"] } }, 
+                { score: { $meta: "textScore" } } // anywhere in the text we will search for name 
+                
             }
          }
         let cursor
 
         try{
+            if ("title" in filters){
+                cursor = await movies
+                .find(query)
+                .sort( { score: { $meta: "textScore" } } )
+            }
+            else{
             cursor = await movies
             .find(query)
             .sort([["year", -1]])
+            }
         }catch(e){
             console.error(`Unable to issue find command ${e}`)
             return{moviesList: [], numMovies: 0}

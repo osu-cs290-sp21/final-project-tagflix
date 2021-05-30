@@ -15,7 +15,7 @@ export default class MoviesController{
             filters.IMDB = parseFloat(req.query.IMDB)
         }
         else if (req.query.title) { 
-            filters.title = req.query.title 
+            filters.title = req.query.title.replace("_", " ")
           }
         else if (req.query.genre){
             filters.genre = req.query.genre
