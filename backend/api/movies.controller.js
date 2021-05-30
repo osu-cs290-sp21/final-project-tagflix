@@ -6,7 +6,7 @@ export default class MoviesController{
         const page = req.query.page ? parseInt(req.query.page) : 0
         let filters = []
         if(req.query.directors){
-            filters.directors = req.query.directors.replace("_", " ")
+            filters.directors = req.query.directors.replace(/[_]/g, " ")
         }
         else if(req.query.year_range){
             filters.year_range = req.query.year_range.split("_").map(Number)
@@ -15,14 +15,13 @@ export default class MoviesController{
             filters.IMDB = parseFloat(req.query.IMDB)
         }
         else if (req.query.title) { 
-            filters.title = req.query.title.replace("_", " ")
+            filters.title = req.query.title.replace(/[_]/g, " ")
           }
         else if (req.query.genre){
             filters.genre = req.query.genre.split("_")
         }
         else if (req.query.tag){
             filters.tag = req.query.tag.split("_")
-            console.log(filters.tag)
         }
 
         const{moviesList, numMovies} = await moviesDAO.getMovies({
