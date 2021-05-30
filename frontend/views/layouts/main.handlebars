@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8"/>
-    <title>TagFlix</title>
 
-    <link rel="stylesheet" href="/style.css">
-    <script src="/index.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <header>
-      <div class="title">
-        <img src="https://static.thenounproject.com/png/2998555-200.png" class="logo">
-        <a href="/"><h1 class="site-title">TagFlix</h1></a>
-      </div>
-      <nav class="navbar">
-        <ul class="navlist">
-          <li class="navitem navlink"><a href="#">Home</a></li>
-          <li class="navitem navlink"><a href="#">Genres</a></li>
-          <li class="navitem navlink"><a href="#">Tags</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <title>TagFlix</title>
 
-    {{{body}}}
-  </body>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+  <script src="/index.js" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <img src="https://static.thenounproject.com/png/2998555-200.png" class="logo">
+      <a href="/">
+        <h1 class="site-title">TagFlix</h1>
+      </a>
+    </div>
+    <nav class="navbar">
+      <ul class="navlist">
+        <li class="navitem navlink">
+          <div class="dropdown">
+            <button class="dropbtn"><a href="/">Home</a></button>
+          </div>
+        </li>
+        <!-- <li class="navitem navlink"><a href="#">Home</a></li> -->
+        <li class="navitem navlink">
+          <div class="dropdown">
+            <button class="dropbtn">Genres</button>
+            <div class="dropdown-content">
+              <div class="column">
+                <a href="/genres/action">Action</a>
+                <a href="/genres/adventure">Adventure</a>
+                <a href="/genres/animation">Animation</a>
+                <a href="/genres/biography">Biography</a>
+                <a href="/genres/comedy">Comedy</a>
+                <a href="/genres/crime">Crime</a>
+                <a href="/genres/documentary">Documentary</a>
+                <a href="/genres/drama">Drama</a>
+                <a href="/genres/family">Family</a>
+              </div>
+              <div class="column">
+                <a href="/genres/fantasy">Fantasy</a>
+                <a href="/genres/film-noir">Film-Noir</a>
+                <a href="/genres/history">History</a>
+                <a href="/genres/horror">Horror</a>
+                <a href="/genres/music">Music</a>
+                <a href="/genres/musical">Musical</a>
+                <a href="/genres/mystery">Mystery</a>
+                <a href="/genres/news">News</a>
+                <a href="/genres/romance">Romance</a>
+              </div>
+              <div class="column">
+                <a href="/genres/sci-fi">Sci-Fi</a>
+                <a href="/genres/short">Short</a>
+                <a href="/genres/sport">Sport</a>
+                <a href="/genres/talk-show">Talk-Show</a>
+                <a href="/genres/thriller">Thriller</a>
+                <a href="/genres/war">War</a>
+                <a href="/genres/western">Western</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="navitem navlink">
+          <div class="dropdown">
+            <button class="dropbtn">Tags</button>
+            <div class="dropdown-content">
+              <div class="column">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  {{{body}}}
+</body>
+
 </html>

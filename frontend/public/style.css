@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: #eeeeee;
+  margin: 0;
 }
 
 a {
@@ -39,18 +40,71 @@ header {
   justify-content: center;
 }
 
-.navlist {
-  padding: 0;
-}
 
 .navitem {
   display: inline;
-  margin: 0 20px;
+  margin: 0px;
 }
 
-.navlist a:hover {
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 1000px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 480px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
   border-bottom: 2px solid red;
   box-shadow: 1px 5px 10px -7px #ED2D2D;
+  background-color: #ffffff;
+}
+
+.column {
+  float: left;
+  width: 29%;
+  padding: 10px;
+  background-color: #ffffff;
+  height: auto;
 }
 
 #search-container {
@@ -74,19 +128,27 @@ header {
 
 #main-search-input:focus {
   background-color: white;
+  outline: none;
 }
 
 #main-search-button {
-  background-color: none;
-}
-
-.search-icon {
-  width: 30px;
-  height: 30px;
+  position: relative;
+  bottom: 5px;
+  margin-left: 5px;
+  background-color: #eeeeee;
+  font-size: 23px;
+  width: 45px;
+  height: 50px;
   color: text;
+  text-decoration: none;
+  border-style: none;
 }
 
-.movie-container-label{
+#main-search-button:hover {
+  color: red;
+}
+
+.movie-container-label {
   margin: 20px auto;
   text-align: center;
   font-size: 25px;
@@ -108,7 +170,6 @@ header {
   flex-direction: column;
   width: 25%;
   margin: 20px 20px 10px 20px;
-
 }
 
 .movie h3 {
@@ -122,10 +183,26 @@ header {
   border-radius: 5px;
   width: 100%;
 }
-.movie a {
-
-}
 
 .movie img:hover {
-  transform: scale(1.15);
+  transform: scale(1.085);
+}
+
+.page-buttons {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-button {
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 10px;
+
 }

@@ -4,7 +4,7 @@
 
 to load the frontend use the url
 
-http://localhost:5000/
+http://localhost:3000/
 
 
 # How to get api working:
@@ -109,7 +109,7 @@ send a get request to:
 http://localhost:5000/api/v1/movies/id/<MongoDB_movie_id>
 
 
-# To update the tags of a movie 
+# To update the tags of a movie
 
 send a put request to:
 

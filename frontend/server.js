@@ -4,12 +4,20 @@ const axios = require('axios')
 
 const app = express()
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main'
+}))
 app.set('view engine', 'handlebars')
 
 
 app.get('/', (req, res) => {
-  const url = 'http://localhost:5000/api/v1/movies?page=0'
+  res.redirect('/page/1')
+})
+
+app.get('/page/:num', (req, res) => {
+  if (parseInt(req.params.num) < 1) req.params.num = 1
+  var queryNum = parseInt(req.params.num) - 1
+  const url = 'http://localhost:5000/api/v1/movies?page=' + queryNum.toString()
   axios.get(url).then(data => {
     var movieArray = data.data.movies
 
@@ -24,7 +32,10 @@ app.get('/', (req, res) => {
       homeContext.push(movieObj)
       if (homeContext.length >= 21) break
     }
-    res.status(200).render('home', {movies: homeContext})
+    res.status(200).render('home', {
+      movies: homeContext,
+      page: (Number(req.params.num))
+    })
   })
 })
 
@@ -50,4 +61,6 @@ app.get('/movies/:id', (req, res) => {
 
 app.use(express.static("./public"))
 
-app.listen(3000)
+app.listen(3000, () => {
+  console.log('== Listening on port 3000');
+})

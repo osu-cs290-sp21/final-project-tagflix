@@ -1,6 +1,6 @@
 <div id="search-container">
   <input type="text" id="main-search-input" placeholder=" Search...">
-  <button type="button" id="main-search-button"><img class="search-icon" src="https://static.thenounproject.com/png/1047226-200.png"></button>
+  <button type="button" id="main-search-button"><i class="fas fa-search"></i></button>
 </div>
 
 <h2 class="movie-container-label">Showing Currently</h2>
@@ -9,3 +9,10 @@
     {{> movie}}
   {{/each}}
 </main>
+
+<div class="page-buttons">
+  <button type="button" class="page-button"><i class="fas fa-caret-left"></i></button>
+  <p class="page-number">{{page}}</p>
+  <button type="button" class="page-button"><i class="fas fa-caret-right"></i></button>
+
+</div>
