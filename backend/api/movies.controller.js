@@ -21,7 +21,8 @@ export default class MoviesController{
             filters.genre = req.query.genre.split("_")
         }
         else if (req.query.tag){
-            filters.tag = req.query.tag
+            filters.tag = req.query.tag.split("_")
+            console.log(filters.tag)
         }
 
         const{moviesList, numMovies} = await moviesDAO.getMovies({
