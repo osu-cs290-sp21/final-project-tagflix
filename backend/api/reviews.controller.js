@@ -58,5 +58,22 @@ export default class ReviewsController {
     } catch (e) { 
       res.status(500).json({ error: e.message }) 
     } 
-  } 
+  }
+  static async apiGetReviews(req,res){
+    const entriesPerPage = req.query.entriesPerPage ? parseInt(req.query.entriesPerPage) : 30
+    const page = req.query.page ? parseInt(req.query.page) : 0
+
+    const{reviewsList, numReviews} = await ReviewsDAO.getReviews({
+        entriesPerPage,
+        page
+    })
+
+    let response = {
+        reviews: reviewsList,
+        page: page,
+        entriesPerPage: entriesPerPage,
+        numReviews: numReviews
+    }
+    res.json(response)
+} 
 }

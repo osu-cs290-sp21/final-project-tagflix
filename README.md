@@ -37,13 +37,19 @@ http://localhost:5000/api/v1/movies?IMDB=<your_min_score>
 
 To search movies by title use:
 
+Note: for multiple words use _ instead of spaces
+
 http://localhost:5000/api/v1/movies?title=<your_title>
 
 To search movies by genre use:
 
+Note: for multiple genres use _ between each genre
+
 http://localhost:5000/api/v1/movies?genre=<your_genre>
 
 To search movies by tag use:
+
+Note: for multiple tags use _ between each tags
 
 http://localhost:5000/api/v1/movies?tag=<your_tag>
 
@@ -54,6 +60,10 @@ http://localhost:5000/api/v1/movies/genres
 Return an array listing all the tags:
 
 http://localhost:5000/api/v1/movies/tags
+
+Pull the most recent reviews:
+
+http://localhost:5000/api/v1/movies/reviews
 
 
 # how to use the review api:
