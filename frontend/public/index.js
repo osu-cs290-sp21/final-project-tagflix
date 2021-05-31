@@ -15,3 +15,11 @@ pageButtons[1].addEventListener('click', () => {
   currentPage = currentPage.toString()
   location.href = '/page/' + currentPage
 })
+
+var searchinput = document.getElementById('main-search-button')
+
+searchinput[0].addEventListener('click', () => {
+  var input = document.getElementById('main-search-input')
+  location.href = '/movies/' + input
+})
+
