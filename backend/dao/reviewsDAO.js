@@ -48,5 +48,33 @@ export default class ReviewsDAO {
       console.error(`Unable to delete review: ${e}`) 
       return { error: e } 
     } 
-  } 
+  }
+  static async getReviews({ // default values
+    page = 0,
+    entriesPerPage = 30
+} = {}){
+    let query
+    let cursor
+    try{
+        cursor = await reviews
+        .find(query)
+        .sort([["date", -1]])
+    }catch(e){
+        console.error(`Unable to issue find command ${e}`)
+        return{reviewsList: [], numReviews: 0}
+    }
+    const displayCursor = cursor.limit(entriesPerPage).skip(entriesPerPage * page)
+    try{
+        const reviewsList = await displayCursor.toArray()
+        const numReviews = await reviews.countDocuments(query) 
+        return{reviewsList, numReviews}
+    }catch(e){
+        console.error(
+            `unable to convert cursor to array and/ or problem counting documents ${e}`
+        )
+        return{reviewsList: [], numReviews: 0}
+    }
+
+    
+} 
 }
