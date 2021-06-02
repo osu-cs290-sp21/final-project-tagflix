@@ -135,3 +135,27 @@ with the json fomatted like so:
 ```
 
 Note this will only update the database with tags that are not already in the array.
+
+# Adding a new movie to the database
+
+send a post request to:
+
+ http://localhost:5000/api/v1/movies/addMovie
+
+with the json fomatted like so:
+
+```
+{
+	"title": "<your_title>",
+	"plot": "<your_plot>",
+	"genres": ["<genre_1>", "<genre_2>", "<genre_n>"],
+	"year": <your_year>,
+	"poster": "<image_addresss>",
+	"tags": ["<tag_1>", "<tag_n>"],
+	"director": "<Director_Name>",
+	"rated": "<MPAA_rating>"
+}
+```
+
+Note this will only update the database with tags that are not already in the array.
+

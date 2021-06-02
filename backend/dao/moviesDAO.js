@@ -154,4 +154,23 @@ export default class MoviesDAO{
           return tags 
         } 
       }
+
+      
+  static async addMovie(plot, genres, poster, year, tags, director, title, rated) { 
+    try { 
+      const movieDoc = {
+        plot: plot, 
+        genres: genres, 
+        poster: poster, 
+        year: year, 
+        tags: tags,
+        director: director,
+        title: title, 
+        rated: rated} //takes all the data and puts it into a doc 
+      return await movies.insertOne(movieDoc) // uploads it to the database 
+    } catch (e) { 
+      console.error(`Unable to post movie: ${e}`) 
+      return { error: e } 
+    } 
+  } 
 }

@@ -24,4 +24,8 @@ router
    //.put(ReviewsCtrl.apiUpdateReview)
    //.delete(ReviewsCtrl.apiDeleteReview)
 
+router
+   .route('/addMovie')
+   .post(MoviesCtrl.apiPostMovie)
+
 export default router
