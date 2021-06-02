@@ -44,19 +44,22 @@ app.get('/movies/:id', (req, res) => {
   const url = 'http://localhost:5000/api/v1/movies/id/' + movieId
   axios.get(url).then(data => {
     var movieObj = {
-      movieTitle: data.data.title,
+      posterUrl: data.data.poster,
+      rated: data.data.rated,
+      title: data.data.title,
       director: data.data.directors,
       year: data.data.year,
-      posterURL: data.data.poster,
-      rating: data.data.rated,
-      genres: data.data.genres,
-      plot: data.data.plot,
-      tags: data.data.tags
+      fullPlot: data.data.fullplot,
+      genres: data.data.genres.join(', '),
+      tags: data.data.tags.join(', '),
+      styles: ['/movie_style.css'],
+      reviews: data.data.reviews
     }
 
     res.status(200).render('moviePage', movieObj)
   })
 })
+
 
 
 app.use(express.static("./public"))
