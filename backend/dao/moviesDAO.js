@@ -156,7 +156,7 @@ export default class MoviesDAO{
       }
 
       
-  static async addMovie(plot, genres, poster, year, tags, director, title, rated) { 
+  static async addMovie(plot, genres, poster, year, tags, directors, title, rated) { 
     try { 
       const movieDoc = {
         plot: plot, 
@@ -164,7 +164,7 @@ export default class MoviesDAO{
         poster: poster, 
         year: year, 
         tags: tags,
-        director: director,
+        directors: directors,
         title: title, 
         rated: rated} //takes all the data and puts it into a doc 
       return await movies.insertOne(movieDoc) // uploads it to the database 

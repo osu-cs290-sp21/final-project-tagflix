@@ -105,7 +105,7 @@ export default class MoviesController{
         const poster = req.body.poster
         const year = req.body.year
         const tags = req.body.tags
-        const director = req.body.director    
+        const directors = req.body.directors    
         const title = req.body.title    
         const rated = req.body.rated    
 
@@ -115,7 +115,7 @@ export default class MoviesController{
           poster, 
           year, 
           tags,
-          director,
+          directors,
           title,
           rated
 

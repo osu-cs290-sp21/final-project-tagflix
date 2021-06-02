@@ -152,7 +152,7 @@ with the json fomatted like so:
 	"year": <your_year>,
 	"poster": "<image_addresss>",
 	"tags": ["<tag_1>", "<tag_n>"],
-	"director": "<Director_Name>",
+	"directors": ["<Name>"],
 	"rated": "<MPAA_rating>"
 }
 ```
