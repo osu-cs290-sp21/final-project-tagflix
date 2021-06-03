@@ -114,6 +114,11 @@ header {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 40px;
+  align-items: center;
+}
+
+#filters {
+  margin: 10px;
 }
 
 #main-search-input {
@@ -132,8 +137,6 @@ header {
 }
 
 #main-search-button {
-  position: relative;
-  bottom: 5px;
   margin-left: 5px;
   background-color: #eeeeee;
   font-size: 23px;
