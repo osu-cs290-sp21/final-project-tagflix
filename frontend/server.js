@@ -46,6 +46,7 @@ app.get('/movies/:id', (req, res) => {
     var movieObj = {
       posterUrl: data.data.poster,
       rated: data.data.rated,
+      imdb: data.data.imdb.rating,
       title: data.data.title,
       director: data.data.directors,
       year: data.data.year,
