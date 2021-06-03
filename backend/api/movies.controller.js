@@ -100,7 +100,7 @@ export default class MoviesController{
 
     static async apiPostMovie(req, res, next) { 
       try { //before we got information from the query parameter but now we are getting information from the body of the request 
-        const plot = req.body.plot 
+        const fullplot = req.body.plot 
         const genres = req.body.genres 
         const poster = req.body.poster
         const year = req.body.year
@@ -108,17 +108,17 @@ export default class MoviesController{
         const directors = req.body.directors    
         const title = req.body.title    
         const rated = req.body.rated    
-
+        const imdb = {"rating" : ""}
         const MovieResponse = await moviesDAO.addMovie( 
-          plot, 
+          fullplot, 
           genres, 
           poster, 
           year, 
           tags,
           directors,
           title,
-          rated
-
+          rated,
+          imdb
         ) //put it all together and send it out to the database 
         res.json({ status: "success" }) //returns success if it worked 
       } catch (e) { 
