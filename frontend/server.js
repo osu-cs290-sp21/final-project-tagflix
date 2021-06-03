@@ -54,6 +54,7 @@ app.get('/movies/:id', (req, res) => {
       genres: data.data.genres.join(', '),
       tags: data.data.tags.join(', '),
       styles: ['/movie_style.css'],
+      scripts: ['/movie_scripts.js'],
       reviews: data.data.reviews
     }
 
