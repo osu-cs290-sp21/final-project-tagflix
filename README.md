@@ -129,7 +129,7 @@ with the json fomatted like so:
 ```
 {
 	"movie_id": "<mongoDB_movie_ID>",
-	"tags": ["<tag_1>", "<tag_2>", <tag_n>"]
+	"tags": ["<tag_1>", "<tag_2>", "<tag_n>"]
 }
 ```
 
