@@ -108,8 +108,7 @@ with the json fomatted like so:
 
 ```
 {
-	"user_id": "<your_user_ID>",
-	"name": "<your_user_name>"
+	"user_id": "<your_user_ID>"
 }
 ```
 
