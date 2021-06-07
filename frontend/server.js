@@ -57,7 +57,7 @@ app.get('/titles/:title', (req, res) => {
     }
     if(homeContext.length == 0)
       {
-        res.status(404).render('404pg')
+        res.status(200).render('no_results')
       }
       else{
         res.status(200).render('home', {
@@ -85,7 +85,7 @@ app.get('/IMDB/:ratting', (req, res) => {
     }
     if(homeContext.length == 0)
       {
-        res.status(404).render('404pg')
+        res.status(200).render('no_results')
       }
       else{
         res.status(200).render('home', {
@@ -114,7 +114,7 @@ app.get('/Year_Range/:years', (req, res) => {
     }
     if(homeContext.length == 0)
       {
-        res.status(404).render('404pg')
+        res.status(200).render('no_results')
       }
       else{
         res.status(200).render('home', {
@@ -156,7 +156,7 @@ app.get('/genras/:genra', (req, res) => {
       }
       if(homeContext.length == 0)
       {
-        res.status(404).render('404pg')
+        res.status(200).render('no_results')
       }
       else{
         res.status(200).render('home', {
@@ -181,27 +181,23 @@ app.get('/tags/:tag', (req, res) => {
     for (var i = 0; i < movieArray.length; i++) {
       var temp = movieArray[i].tags
       for(var k = 0; k < temp.length; k++){
-        if (que.search(temp[k]) == -1 && movieArray[i].poster != null){
-          flag = 1
+        if (que.search(temp[k]) != -1){
+          var movieObj = {
+            title: movieArray[i].title,
+            moviePageURL: "/movies/" + movieArray[i]._id,
+            movieCoverURL: movieArray[i].poster,
+          }
+          homeContext.push(movieObj)
+          break
         }
     }
-    if( flag == 0)
-    {
-      var movieObj = {
-        title: movieArray[i].title,
-        moviePageURL: "/movies/" + movieArray[i]._id,
-        movieCoverURL: movieArray[i].poster,
-      }
-      homeContext.push(movieObj)
-    }
-    else{
-      flag = 0;
-    }
     if (homeContext.length >= 21) break
-      }
+    }
+   
+      
     if(homeContext.length == 0)
     {
-      res.status(404).render('404pg')
+      res.status(200).render('no_results')
     }
     else{
       res.status(200).render('home', {
