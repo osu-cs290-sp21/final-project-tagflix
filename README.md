@@ -108,8 +108,7 @@ with the json fomatted like so:
 
 ```
 {
-	"user_id": "<your_user_ID>",
-	"name": "<your_user_name>"
+	"user_id": "<your_user_ID>"
 }
 ```
 
@@ -130,7 +129,7 @@ with the json fomatted like so:
 ```
 {
 	"movie_id": "<mongoDB_movie_ID>",
-	"tags": ["<tag_1>", "<tag_2>", <tag_n>"]
+	"tags": ["<tag_1>", "<tag_2>", "<tag_n>"]
 }
 ```
 

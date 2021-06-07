@@ -1,9 +1,11 @@
 <main class="main">
     <div class="left">
-      <img class="poster" src="{{posterUrl}}">
-      <div class="line">
-        <p>Rated: {{rated}}</p>
-        <img class="icon" src="/imdb_icon.svg"><p>{{imdb}}</p> 
+      <div class="content">
+        <img class="poster" src="{{posterUrl}}">
+        <div class="line">
+          <p>Rated: {{rated}}</p>
+          <img class="icon" src="/imdb_icon.svg"><p>{{imdb}}</p>
+        </div>
       </div>
     </div>
     <div class="right">
@@ -26,13 +28,15 @@
 
       <div class="reviews">
         <h3 class="review-label">User Reviews</h3>
-        {{#each reviews}}
+        <div class="review-container">
+          {{#each reviews}}
           {{> review}}
-        {{/each}}
+          {{/each}}
 
-        {{#unless reviews}}
+          {{#unless reviews}}
           <p>This movie doesn't have reviews yet! Add one!</p>
-        {{/unless}}
+          {{/unless}}
+        </div>
         <button type="button" id="add-review-button">Post Review</button>
       </div>
     </div>
@@ -77,11 +81,11 @@
         </div>
         <div class="input-element">
           <label for="review-author-input">User ID</label>
-          <input type="text" id="review-author-input">
+          <input type="text" id="review-userid-input">
         </div>
         <div class="input-element">
           <label for="review-userid-input">Username</label>
-          <input type="text" id="review-userid-input">
+          <input type="text" id="review-username-input">
         </div>
       </div>
 

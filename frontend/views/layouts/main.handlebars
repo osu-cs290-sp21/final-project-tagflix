@@ -4,11 +4,15 @@
   <head>
     <meta charset="utf-8" />
     <title>TagFlix</title>
-    <link rel="icon" href="https://i.imgur.com/PWVoVzz.png">
+    <link rel="icon" href="/fav.png">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
     {{#each styles}}
       <link rel="stylesheet" href="{{@this}}">
+    {{/each}}
+
+    {{#each scripts}}
+      <script src="{{@this}}" charset="utf-8" defer></script>
     {{/each}}
 
     <script src="/index.js" charset="utf-8" defer></script>

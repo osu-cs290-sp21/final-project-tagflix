@@ -18,8 +18,9 @@ pageButtons[1].addEventListener('click', () => {
 
 var searchinput = document.getElementById('main-search-button')
 
-searchinput[0].addEventListener('click', () => {
-  var input = document.getElementById('main-search-input')
+searchinput.addEventListener('click', () => {
+  var input = document.getElementById('main-search-input').value;
+  input.toString();
   location.href = '/movies/' + input
 })
 

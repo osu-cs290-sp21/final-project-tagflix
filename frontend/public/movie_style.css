@@ -8,6 +8,11 @@
   width: 30%;
 }
 
+.content {
+  position: sticky;
+  top: 2em;
+}
+
 .poster {
   box-shadow: 12px 12px 5px 0px rgba(137, 137, 143, 0.44);
   border: 1.5px solid black;
@@ -27,17 +32,13 @@
   align-items: center;
 }
 
-.line img {
-  margin-top: 10px;
-  margin-left: 120px;
-  margin-right: 20px;
-}
-
 .icon {
   width: 40px;
   height: 40px;
   display: inline;
-
+  margin-top: 10px;
+  margin-left: 35%;
+  margin-right: 5px;
 }
 
 .right {
@@ -106,7 +107,6 @@
   padding: 45px;
   background-color: white;
   border-bottom: 2px solid black;
-
 }
 
 .review i {
@@ -239,10 +239,10 @@
 }
 
 .modal-footer .modal-accept-button {
-  background-color: #319df6;
+  background-color: #ed2c26;
   color: #fff;
 }
 
 .modal-footer .modal-accept-button:hover {
-  background-color: #087dde;
+  background-color: #bd1701;
 }
