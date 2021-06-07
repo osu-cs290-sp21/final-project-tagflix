@@ -31,8 +31,34 @@ var reviewAcceptButton = document.getElementsByClassName('modal-accept-button')[
 reviewCancelButton.addEventListener('click', hideReviewModal)
 reviewCloseButton.addEventListener('click', hideReviewModal)
 reviewAcceptButton.addEventListener('click', () => {
-  // send post request to http://localhost:5000/api/v1/movies/review
-  hidereivewModal();
+  var request = new XMLHttpRequest()
+  request.open('POST', 'http://localhost:5000/api/v1/movies/review')
+  request.setRequestHeader('Content-Type', 'application/json')
+
+
+  var reviewObj = {
+    movie_id: location.pathname.split('/')[2],
+    text: document.getElementById('review-text-input').value,
+    user_id: document.getElementById('review-userid-input').value,
+    name: document.getElementById('review-username-input').value
+  }
+  requestBody = JSON.stringify(reviewObj)
+
+  request.addEventListener('load', event => {
+    if (event.target.status !== 200) {
+      var message = event.target.response;
+      alert("Error storing review: " + message);
+    } else {
+      var reviewContext = {
+        name: document.getElementById('review-username-input').value,
+        text: document.getElementById('review-text-input').value
+      }
+      var reviewHTML = Handlebars.templates.review(reviewContext)
+      document.getElementsByClassName('review-container')[0].insertAdjacentHTML('afterbegin', reviewHTML)
+      hideReviewModal();
+    }
+  })
+  request.send(requestBody)
 })
 
 

@@ -8,6 +8,11 @@
   width: 30%;
 }
 
+.content {
+  position: sticky;
+  top: 2em;
+}
+
 .poster {
   box-shadow: 12px 12px 5px 0px rgba(137, 137, 143, 0.44);
   border: 1.5px solid black;
