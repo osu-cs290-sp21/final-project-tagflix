@@ -130,16 +130,16 @@ app.get('/genras/:genra', (req, res) => {
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     que.toString()
-    var flag = 0
+    var flag = 1
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
       var temp = movieArray[i].genres
       for(var k = 0; k < temp.length; k++){
-        if (que.search(temp[k]) == -1 && movieArray[i].poster != null){
-          flag = 1
+        if (que.search(temp[k]) != -1 && movieArray[i].poster != null){
+          flag++
         }
     }
-    if(flag == 0)
+    if(flag >= que.split('_').length - 1)
     {
       var movieObj = {
         title: movieArray[i].title,
