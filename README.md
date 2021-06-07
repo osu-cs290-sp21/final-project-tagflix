@@ -37,9 +37,9 @@ http://localhost:5000/api/v1/movies?IMDB=<your_min_score>
 
 To search movies by title use:
 
-Note: for multiple words use _ instead of spaces
+Note: for multiple words use _ or spaces
 
-http://localhost:5000/api/v1/movies?title=<your_title>
+http://localhost:5000/api/v1/movies?title="<your_title>"
 
 To search movies by genre use:
 
