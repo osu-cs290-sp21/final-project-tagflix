@@ -95,26 +95,63 @@ app.get('/IMDB/:ratting', (req, res) => {
   })
 })
 
+app.get('/Year_Range/:years', (req, res) => {
+  var que = req.params.years.toString()
+  const url = 'http://localhost:5000/api/v1/movies?year_range=' + que
+  var values = que.split("_")
+  axios.get(url).then(data => {
+    var movieArray = data.data.movies
+    var homeContext = []
+    for (var i = 0; i < movieArray.length; i++) {
+      if (movieArray[i].year >= parseInt(values[0]) && movieArray[i].year <= parseInt(values[1]) )
+      var movieObj = {
+        title: movieArray[i].title,
+        moviePageURL: "/movies/" + movieArray[i]._id,
+        movieCoverURL: movieArray[i].poster,
+      }
+      homeContext.push(movieObj)
+      if (homeContext.length >= 21) break
+    }
+    if(homeContext.length == 0)
+      {
+        res.status(404).render('404pg')
+      }
+      else{
+        res.status(200).render('home', {
+        movies: homeContext
+      })
+      }  
+  })
+})
+
 app.get('/genras/:genra', (req, res) => {
   var que = req.params.genra
   const url = 'http://localhost:5000/api/v1/movies?genre=' + que
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     que.toString()
+    var flag = 0
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
       var temp = movieArray[i].genres
       for(var k = 0; k < temp.length; k++){
-        if (que.search(temp[k]) != -1 && movieArray[i].poster != null){
-          var movieObj = {
-            title: movieArray[i].title,
-            moviePageURL: "/movies/" + movieArray[i]._id,
-            movieCoverURL: movieArray[i].poster,
-          }
-          homeContext.push(movieObj)
-          break;
+        if (que.search(temp[k]) == -1 && movieArray[i].poster != null){
+          flag = 1
         }
     }
+    if(flag == 0)
+    {
+      var movieObj = {
+        title: movieArray[i].title,
+        moviePageURL: "/movies/" + movieArray[i]._id,
+        movieCoverURL: movieArray[i].poster,
+      }
+      homeContext.push(movieObj)
+    }
+    else{
+      flag = 0;
+    }
+    
     if (homeContext.length >= 21) break
       }
       if(homeContext.length == 0)
@@ -139,19 +176,26 @@ app.get('/tags/:tag', (req, res) => {
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     que.toString()
+    var flag = 0;
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
       var temp = movieArray[i].tags
       for(var k = 0; k < temp.length; k++){
-        if (que.search(temp[k]) != -1 && movieArray[i].poster != null){
-          var movieObj = {
-            title: movieArray[i].title,
-            moviePageURL: "/movies/" + movieArray[i]._id,
-            movieCoverURL: movieArray[i].poster,
-          }
-          homeContext.push(movieObj)
-          break;
+        if (que.search(temp[k]) == -1 && movieArray[i].poster != null){
+          flag = 1
         }
+    }
+    if( flag == 0)
+    {
+      var movieObj = {
+        title: movieArray[i].title,
+        moviePageURL: "/movies/" + movieArray[i]._id,
+        movieCoverURL: movieArray[i].poster,
+      }
+      homeContext.push(movieObj)
+    }
+    else{
+      flag = 0;
     }
     if (homeContext.length >= 21) break
       }

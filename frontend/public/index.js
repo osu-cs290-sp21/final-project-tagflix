@@ -16,6 +16,33 @@ pageButtons[1].addEventListener('click', () => {
   location.href = '/page/' + currentPage
 })
 
+var dropdown = document.getElementById('filters')
+
+dropdown.addEventListener('change', () => {
+  var filer = dropdown.value;
+  if(filer.localeCompare("Title") == 0)
+  {
+      document.getElementById('main-search-input').placeholder = "Search Title"
+  }
+  else if(filer.localeCompare("Genre") == 0)
+  {
+      document.getElementById('main-search-input').placeholder = "Genra1_Genra2"
+  }
+  else if(filer.localeCompare("IMDB_Ratting") == 0)
+  {
+      document.getElementById('main-search-input').placeholder = "Lowest IMDB ratting"
+  }
+  else if(filer.localeCompare("Tags") == 0)
+  {
+      document.getElementById('main-search-input').placeholder = "Tags to search"
+  }
+  else if(filer.localeCompare("Year_Range") == 0)
+  {
+      document.getElementById('main-search-input').placeholder = "Year1_Year2"
+  }
+  
+})
+
 var searchinput = document.getElementById('main-search-button')
 
 searchinput.addEventListener('click', () => {
@@ -39,6 +66,10 @@ searchinput.addEventListener('click', () => {
   else if(filer.localeCompare("Tags") == 0)
   {
     location.href = '/tags/' + input
+  }
+  else if(filer.localeCompare("Year_Range") == 0)
+  {
+    location.href = '/Year_Range/' + input
   }
 
 })
