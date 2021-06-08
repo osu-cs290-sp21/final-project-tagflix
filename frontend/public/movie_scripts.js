@@ -20,8 +20,30 @@ var tagAcceptButton = document.getElementsByClassName('modal-accept-button')[0]
 tagCancelButton.addEventListener('click', hideTagModal)
 tagCloseButton.addEventListener('click', hideTagModal)
 tagAcceptButton.addEventListener('click', () => {
-  // send put request to http://localhost:5000/api/v1/movies/tags
-  hideTagModal();
+  var url = 'http://localhost:5000/api/v1/movies/tags'
+  var request = new XMLHttpRequest()
+  request.open('PUT', url)
+  request.setRequestHeader('Content-Type', 'application/json')
+
+  var userInput = document.getElementById('new-tags-input').value
+  var newTagsArray = userInput.split(' ')
+
+  var tagsObj = {
+    movie_id: location.pathname.split('/')[2],
+    tags: newTagsArray
+  }
+  var requestBody = JSON.stringify(tagsObj)
+  request.addEventListener('load', event => {
+    if (event.target.status !== 200) {
+      var message = event.target.response;
+      alert("Error adding tags: " + message)
+    } else {
+      tagsElem = document.querySelector('.tags p')
+      tagsElem.innerText += ' ' + newTagsArray.toString()
+      hideTagModal()
+    }
+  })
+  request.send(requestBody)
 })
 
 
