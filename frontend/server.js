@@ -143,7 +143,7 @@ app.get('/genras/:genra', (req, res) => {
       }
       if(homeContext.length == 0)
       {
-        res.status(404).render('404pg')
+        res.status(200).render('no_results')
       }
       else{
         res.status(200).render('home', {
