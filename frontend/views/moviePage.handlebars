@@ -30,11 +30,11 @@
         <h3 class="review-label">User Reviews</h3>
         <div class="review-container">
           {{#each reviews}}
-          {{> review}}
+            {{> review}}
           {{/each}}
 
           {{#unless reviews}}
-          <p>This movie doesn't have reviews yet! Add one!</p>
+            <p>This movie doesn't have reviews yet! Add one!</p>
           {{/unless}}
         </div>
         <button type="button" id="add-review-button">Post Review</button>
@@ -54,7 +54,7 @@
       <div class="modal-body">
         <div class="input-element">
           <label for="new-tags-input">Tags:</label>
-          <textarea id="new-tags-input"></textarea>
+          <input id="new-tags-input" placeholder="e.g. funny thrilling..."></input>
         </div>
       </div>
 
