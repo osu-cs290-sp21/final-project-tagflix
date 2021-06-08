@@ -26,7 +26,7 @@ dropdown.addEventListener('change', () => {
   }
   else if(filer.localeCompare("Genre") == 0)
   {
-      document.getElementById('main-search-input').placeholder = "Genra1_Genra2"
+      document.getElementById('main-search-input').placeholder = "Genre1_Genre2"
   }
   else if(filer.localeCompare("IMDB_Ratting") == 0)
   {
@@ -57,9 +57,9 @@ searchinput.addEventListener('click', () => {
   }
   else if(filer.localeCompare("Genre") == 0)
   {
-    location.href = '/genras/' + input
+    location.href = '/genres/' + input
   }
-  else if(filer.localeCompare("IMDB_Ratting") == 0)
+  else if(filer.localeCompare("IMDB_Rating") == 0)
   {
     location.href = '/IMDB/' + input
   }

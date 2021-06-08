@@ -65,7 +65,7 @@ app.get('/titles/:title', (req, res) => {
   })
 })
 
-app.get('/IMDB/:ratting', (req, res) => {
+app.get('/IMDB/:rating', (req, res) => {
   var que = parseInt(req.params.ratting)
   const url = 'http://localhost:5000/api/v1/movies?IMDB=' + que.toString()
   axios.get(url).then(data => {
@@ -119,8 +119,8 @@ app.get('/Year_Range/:years', (req, res) => {
 })
 
 
-app.get('/genras/:genra', (req, res) => {
-  var que = req.params.genra
+app.get('/genres/:genre', (req, res) => {
+  var que = req.params.genre
   const url = 'http://localhost:5000/api/v1/movies?genre=' + que
   axios.get(url).then(data => {
     var movieArray = data.data.movies
