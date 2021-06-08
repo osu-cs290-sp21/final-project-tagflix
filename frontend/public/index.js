@@ -28,7 +28,7 @@ dropdown.addEventListener('change', () => {
   {
       document.getElementById('main-search-input').placeholder = "Genre1_Genre2"
   }
-  else if(filer.localeCompare("IMDB_Ratting") == 0)
+  else if(filer.localeCompare("IMDB_Rating") == 0)
   {
       document.getElementById('main-search-input').placeholder = "Lowest IMDB ratting"
   }
