@@ -118,43 +118,41 @@ app.get('/Year_Range/:years', (req, res) => {
   })
 })
 
+
 app.get('/genras/:genra', (req, res) => {
   var que = req.params.genra
   const url = 'http://localhost:5000/api/v1/movies?genre=' + que
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     que.toString()
-    var flag = 1
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
       var temp = movieArray[i].genres
-      for (var k = 0; k < temp.length; k++) {
-        if (que.search(temp[k]) != -1 && movieArray[i].poster != null) {
-          flag++
+      for(var k = 0; k < temp.length; k++){
+        if (que.search(temp[k]) != -1 && movieArray[i].poster != null){
+          var movieObj = {
+            title: movieArray[i].title,
+            moviePageURL: "/movies/" + movieArray[i]._id,
+            movieCoverURL: movieArray[i].poster,
+          }
+          homeContext.push(movieObj)
+          break;
         }
-      }
-      if (flag >= que.split('_').length - 1) {
-        var movieObj = {
-          title: movieArray[i].title,
-          moviePageURL: "/movies/" + movieArray[i]._id,
-          movieCoverURL: movieArray[i].poster,
-        }
-        homeContext.push(movieObj)
-      } else {
-        flag = 0;
-      }
-
-      if (homeContext.length >= 21) break
     }
-    if (homeContext.length == 0) {
-      res.status(200).render('no_results')
-    } else {
-      res.status(200).render('home', {
+    if (homeContext.length >= 21) break
+      }
+      if(homeContext.length == 0)
+      {
+        res.status(404).render('404pg')
+      }
+      else{
+        res.status(200).render('home', {
         movies: homeContext
       })
-    }
+      }  
   })
 })
+
 
 app.get('/tags/:tag', (req, res) => {
   var que = req.params.tag
