@@ -43,13 +43,16 @@ app.get('/page/:num', (req, res) => {
   })
 })
 app.get('/titles/:title', (req, res) => {
-  var que = req.params.title
+  var que = '"' + req.params.title + '"'
   const url = 'http://localhost:5000/api/v1/movies?title=' + que
+  //console.log(url)
   axios.get(url).then(data => {
     var movieArray = data.data.movies
+    console.log(url)
 
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
+      console.log(movieArray[i].title)
       if (movieArray[i].title.search(que) != -1 && movieArray[i].poster != null) continue
       var movieObj = {
         title: movieArray[i].title,
@@ -70,7 +73,7 @@ app.get('/titles/:title', (req, res) => {
 })
 
 app.get('/IMDB/:rating', (req, res) => {
-  var que = parseInt(req.params.ratting)
+  var que = parseInt(req.params.rating)
   const url = 'http://localhost:5000/api/v1/movies?IMDB=' + que.toString()
   axios.get(url).then(data => {
     var movieArray = data.data.movies

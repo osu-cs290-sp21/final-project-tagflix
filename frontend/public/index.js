@@ -30,7 +30,7 @@ dropdown.addEventListener('change', () => {
   }
   else if(filer.localeCompare("IMDB_Rating") == 0)
   {
-      document.getElementById('main-search-input').placeholder = "Lowest IMDB ratting"
+      document.getElementById('main-search-input').placeholder = "Lowest IMDB rating"
   }
   else if(filer.localeCompare("Tags") == 0)
   {
