@@ -40,7 +40,7 @@ app.get('/page/:num', (req, res) => {
   })
 })
 
-
+// These functions were adapted from this post: https://stackoverflow.com/questions/52669596/promise-all-with-axios/52669775
 function getAllData(tagData){
   return Promise.all(tagData.map(fetchData));
 }
