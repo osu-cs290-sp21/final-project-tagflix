@@ -1,2 +1,14 @@
 {{> header}}
+<h2 class="movie-container-label">Tags</h2>
+<main class="movie-container">
+  {{#each movies}}
+    {{> movie}}
+  {{/each}}
+</main>
 
+<div class="page-buttons">
+  <button type="button" class="page-button"><i class="fas fa-caret-left"></i></button>
+  <p class="page-number">{{page}}</p>
+  <button type="button" class="page-button"><i class="fas fa-caret-right"></i></button>
+
+</div>

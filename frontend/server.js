@@ -14,9 +14,6 @@ app.get('/', (req, res) => {
   res.redirect('/page/1')
 })
 
-app.get('/tags/', (req, res) => {
-  res.status(200).render('tags')
-})
 
 app.get('/page/:num', (req, res) => {
   if (parseInt(req.params.num) < 1) req.params.num = 1
@@ -42,6 +39,51 @@ app.get('/page/:num', (req, res) => {
     })
   })
 })
+
+
+function getAllData(tagData){
+  return Promise.all(tagData.map(fetchData));
+}
+
+function fetchData(tagData) {
+  return axios
+    .get(tagData.url)
+    .then(function(response) {
+      movieArray = response.data.movies
+      return movieObj = {
+        title: tagData.tag,
+        moviePageURL: "/tags/" + tagData.tag,
+        movieCoverURL: movieArray[0].poster
+      }
+    })
+    .catch(e => console.log(`error creating movie objets: ${e}`));
+}
+
+app.get('/tagPage', (req, res) => {
+  const url = 'http://localhost:5000/api/v1/movies/tags'
+   axios.get(url).then(async response => {
+    var homeContext
+    var tagData = []
+    tagsArray = response.data;
+    tagsArray.forEach((tag) => {
+      const tagStuff = {
+      url: 'http://localhost:5000/api/v1/movies?tag=' + tag,
+      tag: tag
+      }
+      tagData.push(tagStuff)
+    })
+    homeContext = await getAllData(tagData) 
+    //.then(resp=>{console.log(resp)}).catch(e=>{console.log(e)})
+
+    console.log(homeContext)
+    res.status(200).render('tags', {
+      movies: homeContext,
+      page: (Number(req.params.num))
+    })
+  }).catch(e => console.log(`error getting tags: ${e}`));
+})
+
+
 app.get('/titles/:title', (req, res) => {
   var que = '"' + req.params.title + '"'
   const url = 'http://localhost:5000/api/v1/movies?title=' + que
@@ -198,6 +240,8 @@ app.get('/tags/:tag', (req, res) => {
     }
   })
 })
+
+
 
 app.get('/movies/:id', (req, res) => {
   var movieId = req.params.id
