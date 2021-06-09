@@ -76,7 +76,8 @@
   margin-top: 30px;
 }
 
-#add-tag-button, #add-review-button {
+#add-tag-button, #add-review-button,
+.buttons button {
   margin: 20px 0;
   width: 100px;
   height: 40px;
@@ -84,8 +85,13 @@
   background-color: white;
 }
 
-#add-tag-button:hover, #add-review-button:hover {
+#add-tag-button:hover, #add-review-button:hover,
+.buttons button:hover {
   background-color: lightgrey;
+}
+
+.buttons {
+  padding-top: 20px;
 }
 
 .reviews {
@@ -104,7 +110,7 @@
 
 .review {
   margin-top: 20px;
-  padding: 45px;
+  padding: 20px;
   background-color: white;
   border-bottom: 2px solid black;
 }
