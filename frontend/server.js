@@ -69,7 +69,7 @@ app.get('/titles/:title', (req, res) => {
 })
 
 app.get('/IMDB/:rating', (req, res) => {
-  var que = parseInt(req.params.ratting)
+  var que = parseInt(req.params.rating)
   const url = 'http://localhost:5000/api/v1/movies?IMDB=' + que.toString()
   axios.get(url).then(data => {
     var movieArray = data.data.movies
