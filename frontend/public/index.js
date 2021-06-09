@@ -40,12 +40,12 @@ dropdown.addEventListener('change', () => {
   {
       document.getElementById('main-search-input').placeholder = "Year1_Year2"
   }
-  
+
 })
 
 var searchinput = document.getElementById('main-search-button')
 
-searchinput.addEventListener('click', () => {
+searchinput.addEventListener('click', function () {
   var input = document.getElementById('main-search-input').value;
   input.toString();
   var e = document.getElementById('filters');
@@ -71,6 +71,11 @@ searchinput.addEventListener('click', () => {
   {
     location.href = '/Year_Range/' + input
   }
-
 })
 
+document.getElementById('main-search-input').addEventListener('keyup', (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault()
+    document.getElementById('main-search-button').click()
+  }
+})
