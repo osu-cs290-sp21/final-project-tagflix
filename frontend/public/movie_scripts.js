@@ -75,7 +75,8 @@ addReviewButton.addEventListener('click', () => {
         }
         var reviewHTML = Handlebars.templates.review(reviewContext)
         document.getElementsByClassName('review-container')[0].insertAdjacentHTML('afterbegin', reviewHTML)
-        hideReviewModal();
+        hideReviewModal()
+        location.reload()
       }
     })
     request.send(requestBody)
@@ -138,6 +139,7 @@ Array.from(editButtons).forEach((button) => {
           var reviewHTML = Handlebars.templates.review(reviewContext)
           document.getElementsByClassName('review-container')[0].insertAdjacentHTML('afterbegin', reviewHTML)
           hideReviewModal();
+          location.reload()
         }
       })
       request.send(requestBody)
@@ -187,6 +189,8 @@ Array.from(deleteButtons).forEach((button) => {
           var reviewHTML = Handlebars.templates.review(reviewContext)
           document.getElementsByClassName('review-container')[0].insertAdjacentHTML('afterbegin', reviewHTML)
           hideReviewModal();
+          location.reload()
+
         }
       })
       request.send(requestBody)
