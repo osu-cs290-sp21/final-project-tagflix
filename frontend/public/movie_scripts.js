@@ -141,6 +141,56 @@ Array.from(editButtons).forEach((button) => {
 })
 
 
+
+Array.from(deleteButtons).forEach((button) => {
+  button.addEventListener('click', (event) => {
+    reviewText = document.getElementById(`T${button.id}`).innerHTML
+
+    console.log(reviewText)
+    
+    var elem = document.querySelectorAll('.modal-header h3')[1]
+    
+
+    var hiddenElem = document.getElementById('modal-backdrop')
+    hiddenElem.classList.remove('hidden')
+    hiddenElem = document.getElementById('add-review-modal')
+    hiddenElem.classList.remove('hidden')
+    
+    //updating that shit
+    var reviewAcceptButton = document.getElementsByClassName('modal-accept-button')[1]
+    reviewAcceptButton.addEventListener('click', () => {
+      var request = new XMLHttpRequest()
+      request.open('DELETE', 'http://localhost:5000/api/v1/movies/review?id=' + button.id)
+      request.setRequestHeader('Content-Type', 'application/json')
+    
+    
+      var reviewObj = {
+        user_id: document.getElementById('review-userid-input').value,
+        name: document.getElementById('review-username-input').value
+      }
+      requestBody = JSON.stringify(reviewObj)
+    
+      request.addEventListener('load', event => {
+        if (event.target.status !== 200) {
+          var message = event.target.response;
+          alert("Error storing review: " + message);
+        } else {
+          var reviewContext = {
+            name: document.getElementById('review-username-input').value,
+            text: document.getElementById('review-text-input').value
+          }
+          var reviewHTML = Handlebars.templates.review(reviewContext)
+          document.getElementsByClassName('review-container')[0].insertAdjacentHTML('afterbegin', reviewHTML)
+          hideReviewModal();
+        }
+      })
+      request.send(requestBody)
+    })
+  })
+})
+
+
+
 /*for (var i = 0; i < editButtons.length; i++) {
   editButtons[i].addEventListener('click', (event) => {
     /* reuses add review modal. will fill in
