@@ -86,12 +86,35 @@ reviewAcceptButton.addEventListener('click', () => {
 var editButtons = document.getElementsByClassName('update-review')
 var deleteButtons = document.getElementsByClassName('delete-review')
 
-for (var i = 0; i < editButtons.length; i++) {
-  editButtons[i].addEventListener('click', (event) => {
+Array.from(editButtons).forEach((button) => {
+  //console.log(button.id)
+  button.addEventListener('click', (event) => {
+    reviewText = document.getElementById(`T${button.id}`).innerHTML
+    //reviewText = review.getElementsByClassName("review-text")[0].value
+    console.log(reviewText)
     /* reuses add review modal. will fill in
      * text to edit, but leave username/id blank to fill in
      and validate the user input.
      */
+    var elem = document.querySelectorAll('.modal-header h3')[1]
+    elem.innerText = 'Update Your Review'
+    document.getElementById('review-text-input').value = reviewText
+    // need to figure out which edit button user clicked to fill in text for them to edit.
+    //console.log(event.target.innerText);
+    var hiddenElem = document.getElementById('modal-backdrop')
+    hiddenElem.classList.remove('hidden')
+    hiddenElem = document.getElementById('add-review-modal')
+    hiddenElem.classList.remove('hidden')
+  })
+})
+
+
+/*for (var i = 0; i < editButtons.length; i++) {
+  editButtons[i].addEventListener('click', (event) => {
+    /* reuses add review modal. will fill in
+     * text to edit, but leave username/id blank to fill in
+     and validate the user input.
+     //
     var elem = document.querySelectorAll('.modal-header h3')[1]
     elem.innerText = 'Update Your Review'
     elem = document.getElementById('review-text-input')
@@ -101,9 +124,9 @@ for (var i = 0; i < editButtons.length; i++) {
     hiddenElem.classList.remove('hidden')
     hiddenElem = document.getElementById('add-review-modal')
     hiddenElem.classList.remove('hidden')
-  })
+  })*/
 
-}
+//}
 
 function hideTagModal() {
   var hiddenElem = document.getElementById('modal-backdrop')

@@ -1,11 +1,11 @@
-<article class="review">
+<article class="review" id="R{{_id}}">
   <p class="hidden">{{_id}}</p>
   <i class="fas fa-quote-left"></i>
   <p class="author">{{name}} <em>says:</em></p>
-  <p class="review-text">{{text}}</p>
+  <p class="review-text" id="T{{_id}}">{{text}}</p>
   <i class="fas fa-quote-right"></i>
   <div class="buttons">
-    <button type="button" class="update-review">Edit</button>
+    <button type="button" class="update-review" id="{{_id}}">Edit</button>
     <button type="button" class="delete-review">Delete</button>
   </div>
 </article>
