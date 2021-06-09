@@ -207,5 +207,18 @@ header {
   border: 1px solid black;
   border-radius: 50%;
   margin: 10px;
+}
 
+.no-content, .content-404 {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-404 .number {
+  font-weight: lighter;
+  font-size: 100px;
+  margin: 20px;
 }
