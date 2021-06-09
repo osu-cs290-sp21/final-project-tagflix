@@ -73,6 +73,7 @@ searchinput.addEventListener('click', function () {
   }
 })
 
+// clicks search button when enter is pressed
 document.getElementById('main-search-input').addEventListener('keyup', (event) => {
   if (event.keyCode === 13) {
     event.preventDefault()
