@@ -14,6 +14,10 @@ app.get('/', (req, res) => {
   res.redirect('/page/1')
 })
 
+app.get('/tags/', (req, res) => {
+  res.status(200).render('tags')
+})
+
 app.get('/page/:num', (req, res) => {
   if (parseInt(req.params.num) < 1) req.params.num = 1
   var queryNum = parseInt(req.params.num) - 1
