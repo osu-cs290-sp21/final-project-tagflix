@@ -83,6 +83,27 @@ reviewAcceptButton.addEventListener('click', () => {
   request.send(requestBody)
 })
 
+var editButtons = document.getElementsByClassName('update-review')
+var deleteButtons = document.getElementsByClassName('delete-review')
+
+for (var i = 0; i < editButtons.length; i++) {
+  editButtons[i].addEventListener('click', (event) => {
+    /* reuses add review modal. will fill in
+     * text to edit, but leave username/id blank to fill in
+     and validate the user input.
+     */
+    var elem = document.querySelectorAll('.modal-header h3')[1]
+    elem.innerText = 'Update Your Review'
+    elem = document.getElementById('review-text-input')
+    // need to figure out which edit button user clicked to fill in text for them to edit.
+    console.log(event.target.innerText);
+    var hiddenElem = document.getElementById('modal-backdrop')
+    hiddenElem.classList.remove('hidden')
+    hiddenElem = document.getElementById('add-review-modal')
+    hiddenElem.classList.remove('hidden')
+  })
+
+}
 
 function hideTagModal() {
   var hiddenElem = document.getElementById('modal-backdrop')
