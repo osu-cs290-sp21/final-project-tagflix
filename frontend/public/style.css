@@ -224,3 +224,43 @@ header {
   font-size: 100px;
   margin: 20px;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: max-content;
+  height: 65%;
+}
+
+.add-movie-label {
+  margin: 20px auto;
+}
+
+.row input {
+  border: none;
+  border-bottom: 2px solid red;
+  width: 30em;
+  height: 3.5em;
+  font-size: 1em;
+  margin: 5px;
+}
+
+.row textarea {
+  width: 60em;
+  height: 10em;
+  border: none;
+  border-bottom: 2px solid red;
+  font-size: 1.05em;
+  margin: 5px;
+}
+
+#submit {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+#submit:hover {
+  background-color: red;
+  color: white;
+}
