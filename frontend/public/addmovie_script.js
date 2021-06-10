@@ -32,6 +32,6 @@ admovie.addEventListener('click', () =>{
         directors: director_list,
         rated: rating1,
     }
-    requestBody = JSON.stringify(newmovie)
+    var requestBody = JSON.stringify(newmovie)
     request.send(requestBody)
 })
