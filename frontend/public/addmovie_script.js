@@ -5,13 +5,14 @@ admovie.addEventListener('click', () =>{
     var title1 = document.getElementById('title-input')
     var year1 = document.getElementById('year-input')
     var director1 = document.getElementById('director-input')
-    var year1 = document.getElementById('year-input')
     var image1 = document.getElementById('image-link')
     var rating1 = document.getElementById('rating-input')
     var genre1 = document.getElementById('genre-input')
     var tag1 = document.getElementById('tag-input')
 
-    var request = new XMLHttpRequest()
+    if(plot1 && title1 && year1 && director1 && image1 && rating1 && genre1 && tag1)
+    {
+        var request = new XMLHttpRequest()
     request.open('POST', 'http://localhost:5000/api/v1/movies/addMovie')
     request.setRequestHeader('Content-Type', 'application/json')
 
@@ -34,5 +35,9 @@ admovie.addEventListener('click', () =>{
     }
     var requestBody = JSON.stringify(newmovie)
     request.send(requestBody)
+    }
+    else{
+        alert("Not all infomation has been filled in");
+    }    
   
 })
