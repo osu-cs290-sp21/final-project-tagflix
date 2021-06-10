@@ -59,7 +59,7 @@ function fetchData(tagData) {
     .catch(e => console.log(`error creating movie objets: ${e}`));
 }
 
-app.get('/tagPage', (req, res) => {
+app.get('/tagPage', (req, res) => { //pulls all tags and displays on page
   const url = 'http://localhost:5000/api/v1/movies/tags'
    axios.get(url).then(async response => {
     var homeContext
@@ -73,9 +73,7 @@ app.get('/tagPage', (req, res) => {
       tagData.push(tagStuff)
     })
     homeContext = await getAllData(tagData) 
-    //.then(resp=>{console.log(resp)}).catch(e=>{console.log(e)})
-
-    console.log(homeContext)
+   
     res.status(200).render('tags', {
       movies: homeContext,
       page: (Number(req.params.num))
@@ -87,7 +85,6 @@ app.get('/tagPage', (req, res) => {
 app.get('/titles/:title', (req, res) => {
   var que = '"' + req.params.title + '"'
   const url = 'http://localhost:5000/api/v1/movies?title=' + que
-  //console.log(url)
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     console.log(url)
@@ -148,7 +145,7 @@ app.get('/Year_Range/:years', (req, res) => {
     var movieArray = data.data.movies
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
-      if (movieArray[i].year >= parseInt(values[0]) && movieArray[i].year <= parseInt(values[1]))
+      if (movieArray[i].year >= parseInt(values[0]) && movieArray[i].year <= parseInt(values[1])) //loops through data and looks for numbers within the range
         var movieObj = {
           title: movieArray[i].title,
           moviePageURL: "/movies/" + movieArray[i]._id,
@@ -212,7 +209,6 @@ app.get('/tags/:tag', (req, res) => {
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     que.toString()
-    var flag = 0;
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
       var temp = movieArray[i].tags

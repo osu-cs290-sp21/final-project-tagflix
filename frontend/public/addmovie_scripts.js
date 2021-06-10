@@ -10,15 +10,15 @@ admovie.addEventListener('click', () =>{
     var genre1 = document.getElementById('genre-input').value.toString()
     var tag1 = document.getElementById('tag-input').value.toString()
 
-    if(plot1 && title1 && year1 && director1 && image1 && rating1 && genre1 && tag1)
+    if(plot1 && title1 && year1 && director1 && image1 && rating1 && genre1 && tag1) //checks for all input boxes to have infomation in them
     {
       var request = new XMLHttpRequest()
       request.open('POST', 'http://localhost:5000/api/v1/movies/addMovie')
       request.setRequestHeader('Content-Type', 'application/json')
 
-      var director_list = director1.split(",");
-      var genre_list = genre1.split(" ");
-      var tag_list = tag1.split(" ");
+      var director_list = director1.split(",");//splits director names at commas
+      var genre_list = genre1.split(" ");//splits genre at the space between each one
+      var tag_list = tag1.split(" ");//splits tags at the space between each one
 
       var newmovie  = {
         title: title1.toString(),
@@ -30,7 +30,7 @@ admovie.addEventListener('click', () =>{
         directors: director_list,
         rated: rating1.toString(),
       }
-      var requestBody = JSON.stringify(newmovie)
+      var requestBody = JSON.stringify(newmovie) //packages as a json and sends to API
       console.log(requestBody);
       request.send(requestBody)
       location.href = '/'
