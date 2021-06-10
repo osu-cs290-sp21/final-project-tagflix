@@ -27,7 +27,7 @@ admovie.addEventListener('click', () =>{
         if(master_genre_list.search(genre_list[i]) == -1)
         {
             flag = 1
-            alert("Invalid genre detected, please refer to genre dropdown for valid options")
+            alert("Invalid genre detected, please refer to genre dropdown above for valid options")
             break;
         }
       }
