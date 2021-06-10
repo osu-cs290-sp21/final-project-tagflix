@@ -266,7 +266,11 @@ app.get('/movies/:id', (req, res) => {
   })
 })
 
+app.get('/add-movie/', (req, res) => {
+  
+  res.status(200).render('addmoviepg')
 
+})
 
 app.use(express.static("./public"))
 

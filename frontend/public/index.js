@@ -74,3 +74,8 @@ searchinput.addEventListener('click', () => {
 
 })
 
+var admovie = document.getElementById('post-movie')
+
+admovie[0].addEventListener('click', () =>{
+    console.log("test")
+})
