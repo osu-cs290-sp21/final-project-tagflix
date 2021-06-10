@@ -34,4 +34,5 @@ admovie.addEventListener('click', () =>{
     }
     var requestBody = JSON.stringify(newmovie)
     request.send(requestBody)
+    location.href = '/'
 })
