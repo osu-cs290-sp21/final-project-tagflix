@@ -268,7 +268,7 @@ app.get('/movies/:id', (req, res) => {
 
 app.get('/add-movie/', (req, res) => {
   
-  var scripts =  ['https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js', '/addmovie_scriptjs']
+  var scripts =  ['https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js', '/addmovie_scripts.js']
   res.status(200).render('addmoviepg', scripts)
 
 })
