@@ -23,14 +23,14 @@ admovie.addEventListener('click', () =>{
     var tag_list = tag1.split(" ")
 
     var newmovie  = {
-        title: title1,
-        plot: plot1,
+        title: title1toString(),
+        plot: plot1.toString(),
         genres: genre_list,
         year: parseInt(year1),
-        poster: image1,
+        poster: image1.toString(),
         tags: tag_list,
         directors: director_list,
-        rated: rating1,
+        rated: rating1.toString(),
     }
     var requestBody = JSON.stringify(newmovie)
     request.send(requestBody)
