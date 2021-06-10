@@ -16,7 +16,7 @@ admovie.addEventListener('click', () =>{
       request.open('POST', 'http://localhost:5000/api/v1/movies/addMovie')
       request.setRequestHeader('Content-Type', 'application/json')
 
-      var director_list = director1.split(" ");
+      var director_list = director1.split(",");
       var genre_list = genre1.split(" ");
       var tag_list = tag1.split(" ");
 
@@ -31,6 +31,7 @@ admovie.addEventListener('click', () =>{
         rated: rating1.toString(),
       }
       var requestBody = JSON.stringify(newmovie)
+      console.log(requestBody);
       request.send(requestBody)
       location.href = '/'
     }
