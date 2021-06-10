@@ -2,6 +2,15 @@
 
 var addTagButton = document.getElementById('add-tag-button')
 addTagButton.addEventListener('click', () => {
+  var elem = document.querySelectorAll('.modal-header h3')[0]
+  elem.innerText = 'Add Tags'
+  elem = document.querySelectorAll('.input-element label')[0]
+  elem.innerText = 'Tags:'
+  elem = document.getElementsByClassName('modal-accept-button')[0]
+  elem.innerText = 'Submit'
+  elem = document.getElementById('new-tags-input')
+  elem.placeholder = "e.g. funny thrilling..."
+
   var hiddenElem = document.getElementById('modal-backdrop')
   hiddenElem.classList.remove('hidden')
   hiddenElem = document.getElementById('add-tag-modal')
@@ -46,6 +55,11 @@ tagAcceptButton.addEventListener('click', () => {
 
 var addReviewButton = document.getElementById('add-review-button')
 addReviewButton.addEventListener('click', () => {
+  var elem = document.querySelectorAll('.modal-header h3')[1]
+  elem.innerText = 'Add a Review'
+  elem = document.querySelectorAll('.modal-accept-button')[1]
+  elem.innerText = 'Post'
+
   var hiddenElem = document.getElementById('modal-backdrop')
   hiddenElem.classList.remove('hidden')
   hiddenElem = document.getElementById('add-review-modal')
@@ -101,10 +115,10 @@ Array.from(editButtons).forEach((button) => {
   button.addEventListener('click', (event) => {
     reviewText = document.getElementById(`T${button.id}`).innerHTML
 
-    console.log(reviewText)
-
     var elem = document.querySelectorAll('.modal-header h3')[1]
     elem.innerText = 'Update Your Review'
+    elem = document.querySelectorAll('.modal-accept-button')[1]
+    elem.innerText = 'Update'
     document.getElementById('review-text-input').value = reviewText
 
     var hiddenElem = document.getElementById('modal-backdrop')
@@ -156,12 +170,21 @@ Array.from(deleteButtons).forEach((button) => {
 
     console.log(reviewText)
 
-    var elem = document.querySelectorAll('.modal-header h3')[1]
+    var elem = document.querySelectorAll('.modal-header h3')[0]
+    elem.innerText = 'Delete your Review'
+    elem = document.querySelectorAll('.input-element label')[0]
+    elem.innerText = 'User ID:'
+    elem = document.getElementsByClassName('modal-accept-button')[0]
+    elem.innerText = 'Delete'
+    elem = document.getElementById('new-tags-input')
+    elem.placeholder = ""
+
+
 
 
     var hiddenElem = document.getElementById('modal-backdrop')
     hiddenElem.classList.remove('hidden')
-    hiddenElem = document.getElementById('add-review-modal')
+    hiddenElem = document.getElementById('add-tag-modal')
     hiddenElem.classList.remove('hidden')
 
     //updating that shit
