@@ -31,7 +31,6 @@ admovie.addEventListener('click', () =>{
         rated: rating1.toString(),
       }
       var requestBody = JSON.stringify(newmovie) //packages as a json and sends to API
-      console.log(requestBody);
       request.send(requestBody)
       location.href = '/'
     }
