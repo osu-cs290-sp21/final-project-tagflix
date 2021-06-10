@@ -23,7 +23,7 @@ admovie.addEventListener('click', () =>{
     var tag_list = tag1.split(" ")
 
     var newmovie  = {
-        title: title1toString(),
+        title: title1.toString(),
         plot: plot1.toString(),
         genres: genre_list,
         year: parseInt(year1),
