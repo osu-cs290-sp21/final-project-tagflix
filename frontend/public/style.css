@@ -182,7 +182,7 @@ header {
 
 .movie img {
   margin: 20px 20px 10px 20px;
-  box-shadow: 12px 12px 5px 0px rgba(137, 137, 143, 0.44);
+  /* box-shadow: 12px 12px 5px 0px rgba(137, 137, 143, 0.44); */
   border: 1.5px solid black;
   border-radius: 5px;
   width: 100%;
