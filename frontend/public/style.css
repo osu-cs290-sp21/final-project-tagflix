@@ -177,6 +177,7 @@ header {
 
 .movie h3 {
   margin: 0 auto;
+  height: 10%;
 }
 
 .movie img {
@@ -185,6 +186,7 @@ header {
   border: 1.5px solid black;
   border-radius: 5px;
   width: 100%;
+  height: 80%;
 }
 
 .movie img:hover {
