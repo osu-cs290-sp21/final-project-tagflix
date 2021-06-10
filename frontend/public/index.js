@@ -40,7 +40,7 @@ dropdown.addEventListener('change', () => {
   {
       document.getElementById('main-search-input').placeholder = "Year1_Year2"
   }
-  
+
 })
 
 var searchinput = document.getElementById('main-search-button') //sends link based on option selected and input infomation
@@ -73,6 +73,3 @@ searchinput.addEventListener('click', () => {
   }
 
 })
-
-
-    
