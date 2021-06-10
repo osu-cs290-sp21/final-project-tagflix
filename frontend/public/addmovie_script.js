@@ -1,4 +1,4 @@
-var admovie = document.getElementsById('submit-movie')
+var admovie = document.getElementById('submit')
 
 admovie.addEventListener('click', () =>{
     var plot1 = document.getElementById('plot-input')
@@ -34,5 +34,5 @@ admovie.addEventListener('click', () =>{
     }
     var requestBody = JSON.stringify(newmovie)
     request.send(requestBody)
-    location.href = '/'
+  
 })

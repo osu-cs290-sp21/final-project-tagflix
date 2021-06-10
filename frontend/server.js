@@ -268,7 +268,8 @@ app.get('/movies/:id', (req, res) => {
 
 app.get('/add-movie/', (req, res) => {
   
-  res.status(200).render('addmoviepg')
+  var scripts =  ['https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js', '/addmovie_scriptjs']
+  res.status(200).render('addmoviepg', scripts)
 
 })
 
