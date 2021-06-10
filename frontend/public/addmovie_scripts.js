@@ -1,4 +1,5 @@
 var admovie = document.getElementById('submit')
+var master_genre_list = "Action Adventure Animation Biography Comedy Crime Documentary Drama Family Fantasy Film-Noir History Horror Music Musical Mystery News Romance Sci-Fi Short Sport Talk-Show Thriller War Western"
 
 admovie.addEventListener('click', () =>{
     var plot1 = document.getElementById('plot-input').value.toString()
@@ -20,19 +21,34 @@ admovie.addEventListener('click', () =>{
       var genre_list = genre1.split(" ");//splits genre at the space between each one
       var tag_list = tag1.split(" ");//splits tags at the space between each one
 
-      var newmovie  = {
-        title: title1.toString(),
-        plot: plot1.toString(),
-        genres: genre_list,
-        year: parseInt(year1),
-        poster: image1.toString(),
-        tags: tag_list,
-        directors: director_list,
-        rated: rating1.toString(),
+      var flag = 0;
+      for(var i = 0; i < genre_list.length;i++)
+      {
+        if(master_genre_list.search(genre_list[i]) == -1)
+        {
+            flag = 1
+            alert("Invalid genre detected, please refer to genre dropdown for valid options")
+            break;
+        }
       }
-      var requestBody = JSON.stringify(newmovie) //packages as a json and sends to API
-      request.send(requestBody)
-      location.href = '/'
+  
+      if(flag == 0)
+      {
+        var newmovie  = {
+          title: title1.toString(),
+          plot: plot1.toString(),
+          genres: genre_list,
+          year: parseInt(year1),
+          poster: image1.toString(),
+          tags: tag_list,
+          directors: director_list,
+          rated: rating1.toString(),
+        }
+        var requestBody = JSON.stringify(newmovie) //packages as a json and sends to API
+        request.send(requestBody)
+        location.href = '/'
+       
+      }
     }
     else {
       alert("Not all infomation has been filled in");
