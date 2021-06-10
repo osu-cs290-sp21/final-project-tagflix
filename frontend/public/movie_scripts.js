@@ -35,6 +35,7 @@ tagAcceptButton.addEventListener('click', () => {
       tagsElem = document.querySelector('.tags p')
       tagsElem.innerText += ' ' + newTagsArray.toString()
       hideTagModal()
+      location.reload()
     }
   })
   request.send(requestBody)
