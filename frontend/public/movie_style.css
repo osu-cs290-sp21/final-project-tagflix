@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 20px;
 }
 
@@ -251,4 +252,21 @@
 
 .modal-footer .modal-accept-button:hover {
   background-color: #bd1701;
+}
+
+@media (max-width: 1100px) {
+  .main {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left {
+    width: max-content;
+  }
+
+  .review-text {
+    width: 100%;
+  }
 }
