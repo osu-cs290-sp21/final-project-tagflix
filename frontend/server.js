@@ -72,8 +72,8 @@ app.get('/tagPage', (req, res) => { //pulls all tags and displays on page
       }
       tagData.push(tagStuff)
     })
-    homeContext = await getAllData(tagData) 
-   
+    homeContext = await getAllData(tagData)
+
     res.status(200).render('tags', {
       movies: homeContext,
       page: (Number(req.params.num))
@@ -195,7 +195,7 @@ app.get('/genres/:genre', (req, res) => {
         res.status(200).render('home', {
         movies: homeContext
       })
-      }  
+      }
   })
 })
 
@@ -228,7 +228,7 @@ app.get('/tags/:tag', (req, res) => {
 
 
     if (homeContext.length == 0) {
-      res.status(200).render('no_results')
+      res.status(200).render('no_results', {scripts: ["/index.js"]})
     } else {
       res.status(200).render('home', {
         movies: homeContext
@@ -263,7 +263,7 @@ app.get('/movies/:id', (req, res) => {
 })
 
 app.get('/add-movie/', (req, res) => {
-  
+
   var scripts =  ['https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js', '/addmovie_scripts.js']
   res.status(200).render('addmoviepg', {scripts} )
 
