@@ -1,7 +1,8 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Spartan', sans-serif;
   background-color: #eeeeee;
   margin: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -28,10 +29,12 @@ header {
 }
 
 .site-title {
+  font-family:  'Monoton', cursive;
   display: inline;
   text-align: center;
   text-decoration: none;
   font-size: 50px;
+  font-weight: 600;
   margin: 0 auto 5px;
 }
 
