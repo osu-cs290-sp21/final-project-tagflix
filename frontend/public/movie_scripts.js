@@ -102,9 +102,12 @@ addReviewButton.addEventListener('click', () => {
 var reviewCancelButton = document.getElementsByClassName('modal-cancel-button')[1]
 var reviewCloseButton = document.getElementsByClassName('modal-close-button')[1]
 var reviewAcceptButton = document.getElementsByClassName('modal-accept-button')[1]
+var deleteCancelButton = document.getElementsByClassName('modal-cancel-button')[2]
+var deleteCloseButton = document.getElementsByClassName('modal-close-button')[2]
 reviewCancelButton.addEventListener('click', hideReviewModal)
 reviewCloseButton.addEventListener('click', hideReviewModal)
-
+deleteCancelButton.addEventListener('click', hideDeleteModal)
+deleteCloseButton.addEventListener('click', hideDeleteModal)
 
 //updating the review
 
@@ -166,29 +169,14 @@ Array.from(editButtons).forEach((button) => {
 // deleteing reviews
 Array.from(deleteButtons).forEach((button) => {
   button.addEventListener('click', (event) => {
-    reviewText = document.getElementById(`T${button.id}`).innerHTML
-
-    console.log(reviewText)
-
-    var elem = document.querySelectorAll('.modal-header h3')[0]
-    elem.innerText = 'Delete your Review'
-    elem = document.querySelectorAll('.input-element label')[0]
-    elem.innerText = 'User ID:'
-    elem = document.getElementsByClassName('modal-accept-button')[0]
-    elem.innerText = 'Delete'
-    elem = document.getElementById('new-tags-input')
-    elem.placeholder = ""
-
-
-
 
     var hiddenElem = document.getElementById('modal-backdrop')
     hiddenElem.classList.remove('hidden')
-    hiddenElem = document.getElementById('add-tag-modal')
+    hiddenElem = document.getElementById('delete-review-modal')
     hiddenElem.classList.remove('hidden')
 
     //updating that shit
-    var reviewAcceptButton = document.getElementsByClassName('modal-accept-button')[1]
+    var reviewAcceptButton = document.getElementsByClassName('modal-accept-button')[2]
     reviewAcceptButton.addEventListener('click', () => {
       var request = new XMLHttpRequest()
       request.open('DELETE', 'http://localhost:5000/api/v1/movies/review?id=' + button.id)
@@ -196,8 +184,8 @@ Array.from(deleteButtons).forEach((button) => {
 
 
       var reviewObj = {
-        user_id: document.getElementById('review-userid-input').value,
-        name: document.getElementById('review-username-input').value
+        user_id: document.getElementById('delete-userid-input').value,
+        name: document.getElementById('delete-username-input').value
       }
       requestBody = JSON.stringify(reviewObj)
 
@@ -207,12 +195,12 @@ Array.from(deleteButtons).forEach((button) => {
           alert("Error storing review: " + message);
         } else {
           var reviewContext = {
-            name: document.getElementById('review-username-input').value,
-            text: document.getElementById('review-text-input').value
+            name: document.getElementById('delete-username-input').value,
+            text: document.getElementById('delete-text-input').value
           }
           var reviewHTML = Handlebars.templates.review(reviewContext)
           document.getElementsByClassName('review-container')[0].insertAdjacentHTML('afterbegin', reviewHTML)
-          hideReviewModal();
+          hideDeleteModal();
           location.reload()
 
         }
@@ -243,5 +231,16 @@ function hideReviewModal() {
   textInput = document.getElementById('review-userid-input')
   textInput.value = ''
   textInput = document.getElementById('review-username-input')
+  textInput.value = ''
+}
+
+function hideDeleteModal() {
+  var hiddenElem = document.getElementById('modal-backdrop')
+  hiddenElem.classList.add('hidden')
+  hiddenElem = document.getElementById('delete-review-modal')
+  hiddenElem.classList.add('hidden')
+  var textInput = document.getElementById('delete-userid-input')
+  textInput.value = ''
+  textInput = document.getElementById('delete-username-input')
   textInput.value = ''
 }

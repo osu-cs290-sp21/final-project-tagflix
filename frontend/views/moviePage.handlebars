@@ -65,7 +65,6 @@
     </div>
   </div>
 
-
   <div id="add-review-modal" class="hidden">
     <div class="modal-dialog">
 
@@ -93,6 +92,33 @@
       <div class="modal-footer">
         <button type="button" class="modal-cancel-button">Cancel</button>
         <button type="button" class="modal-accept-button">Post Review</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="delete-review-modal" class="hidden">
+    <div class="modal-dialog">
+
+      <div class="modal-header">
+        <h3>Delete a Review</h3>
+        <button type="button" class="modal-close-button">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="input-element">
+          <label for="review-author-input">User ID</label>
+          <input type="text" id="delete-userid-input">
+        </div>
+        <div class="input-element">
+          <label for="review-userid-input">Username</label>
+          <input type="text" id="delete-username-input">
+        </div>
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="modal-cancel-button">Cancel</button>
+        <button type="button" class="modal-accept-button">Delete</button>
       </div>
     </div>
   </div>

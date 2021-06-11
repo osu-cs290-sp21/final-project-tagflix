@@ -153,7 +153,7 @@
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-#add-tag-modal, #add-review-modal {
+#add-tag-modal, #add-review-modal, #delete-review-modal {
   position: fixed;
   top: 0;
   bottom: 0;
