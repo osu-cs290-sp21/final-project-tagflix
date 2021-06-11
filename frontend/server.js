@@ -25,8 +25,10 @@ app.get('/page/:num', (req, res) => {
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
       if (!movieArray[i].poster) continue
+      var title = movieArray[i].title
+      if (title.length > 25) title = title.slice(0, 22) + ' ...'
       var movieObj = {
-        title: movieArray[i].title,
+        title: title,
         moviePageURL: "/movies/" + movieArray[i]._id,
         movieCoverURL: movieArray[i].poster,
       }
