@@ -8,8 +8,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./frontend/server.js",
-    "build": "handlebars ./frontend/views/partials/review.handlebars -f ./frontend/public/reviewTemplate.js",
+    "start": "node ./server.js",
+    "build": "handlebars ./views/partials/review.handlebars -f ./public/reviewTemplate.js",
     "prestart": "npm run build"
   },
   "author": "",
