@@ -73,3 +73,10 @@ searchinput.addEventListener('click', () => {
   }
 
 })
+
+document.getElementById('main-search-input').addEventListener('keyup', (event) => {
+   if (event.keyCode === 13) {
+     event.preventDefault()
+     document.getElementById('main-search-button').click()
+   }
+})
