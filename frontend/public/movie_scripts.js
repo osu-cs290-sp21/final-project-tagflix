@@ -196,7 +196,7 @@ Array.from(deleteButtons).forEach((button) => {
         } else {
           var reviewContext = {
             name: document.getElementById('delete-username-input').value,
-            text: document.getElementById('delete-text-input').value
+            //text: document.getElementById('delete-text-input').value
           }
           var reviewHTML = Handlebars.templates.review(reviewContext)
           document.getElementsByClassName('review-container')[0].insertAdjacentHTML('afterbegin', reviewHTML)
