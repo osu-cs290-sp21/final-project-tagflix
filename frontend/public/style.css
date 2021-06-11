@@ -158,6 +158,7 @@ header {
   margin: 20px auto;
   text-align: center;
   font-size: 25px;
+  font-weight: 800;
   display: block;
   width: auto;
 }
@@ -181,6 +182,7 @@ header {
 .movie h3 {
   margin: 0 auto;
   height: 10%;
+  font-weight: 600;
 }
 
 .movie img {
