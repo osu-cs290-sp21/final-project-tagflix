@@ -1,23 +1,4 @@
-var pageButtons = document.getElementsByClassName('page-button')
-
-if (pageButtons.length) {
-  pageButtons[0].addEventListener('click', () => {
-    var currentPage = parseInt(document.getElementsByClassName('page-number')[0].innerText)
-    if (!currentPage) return
-    currentPage--
-    currentPage = currentPage.toString()
-
-    location.href = '/page/' + currentPage
-  })
-
-  pageButtons[1].addEventListener('click', () => {
-    var currentPage = parseInt(document.getElementsByClassName('page-number')[0].innerText)
-    currentPage++
-    currentPage = currentPage.toString()
-    location.href = '/page/' + currentPage
-  })
-}
-
+// Searching -------------------------------------------------------------------
 var dropdown = document.getElementById('filters') //change placeholder text depending on option selected
 
 dropdown.addEventListener('change', () => {
@@ -76,9 +57,33 @@ searchinput.addEventListener('click', () => {
 
 })
 
+// Checks for "enter" key presses to trigger search
 document.getElementById('main-search-input').addEventListener('keyup', (event) => {
    if (event.keyCode === 13) {
      event.preventDefault()
      document.getElementById('main-search-button').click()
    }
 })
+
+//------------------------------------------------------------------------------
+
+var pageButtons = document.getElementsByClassName('page-button')
+
+if (pageButtons.length) {
+  // previous page
+  pageButtons[0].addEventListener('click', () => {
+    var currentPage = parseInt(document.getElementsByClassName('page-number')[0].innerText)
+    if (!currentPage) return
+    currentPage--
+    currentPage = currentPage.toString()
+
+    location.href = '/page/' + currentPage
+  })
+  // next page
+  pageButtons[1].addEventListener('click', () => {
+    var currentPage = parseInt(document.getElementsByClassName('page-number')[0].innerText)
+    currentPage++
+    currentPage = currentPage.toString()
+    location.href = '/page/' + currentPage
+  })
+}
