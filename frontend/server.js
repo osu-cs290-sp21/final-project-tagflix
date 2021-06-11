@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 app.get('/page/:num', (req, res) => {
   if (parseInt(req.params.num) < 1) req.params.num = 1
   var queryNum = parseInt(req.params.num) - 1
-  const url = 'http://localhost:5000/api/v1/movies?page=' + queryNum.toString()
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movies?page=' + queryNum.toString()
   axios.get(url).then(data => {
     var movieArray = data.data.movies
 
@@ -62,14 +62,14 @@ function fetchData(tagData) {
 }
 
 app.get('/tagPage', (req, res) => { //pulls all tags and displays on page
-  const url = 'http://localhost:5000/api/v1/movies/tags'
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/tags'
    axios.get(url).then(async response => {
     var homeContext
     var tagData = []
     tagsArray = response.data;
     tagsArray.forEach((tag) => {
       const tagStuff = {
-      url: 'http://localhost:5000/api/v1/movies?tag=' + tag,
+      url: 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movies?tag=' + tag,
       tag: tag
       }
       tagData.push(tagStuff)
@@ -86,14 +86,12 @@ app.get('/tagPage', (req, res) => { //pulls all tags and displays on page
 
 app.get('/titles/:title', (req, res) => {
   var que = '"' + req.params.title + '"'
-  const url = 'http://localhost:5000/api/v1/movies?title=' + que
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movies?title=' + que
   axios.get(url).then(data => {
     var movieArray = data.data.movies
-    console.log(url)
 
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
-      console.log(movieArray[i].title)
       if (movieArray[i].title.search(que) != -1 && movieArray[i].poster != null) continue
       var movieObj = {
         title: movieArray[i].title,
@@ -115,7 +113,7 @@ app.get('/titles/:title', (req, res) => {
 
 app.get('/IMDB/:rating', (req, res) => {
   var que = parseInt(req.params.rating)
-  const url = 'http://localhost:5000/api/v1/movies?IMDB=' + que.toString()
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movies?IMDB=' + que.toString()
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     var homeContext = []
@@ -140,14 +138,13 @@ app.get('/IMDB/:rating', (req, res) => {
 })
 
 app.get('/Year_Range/:years', (req, res) => {
-  var que = req.params.years.toString()
-  const url = 'http://localhost:5000/api/v1/movies?year_range=' + que
-  var values = que.split("_")
+  var que = req.params.years
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movies?year_range=' + que
+  //var values = que.split("_")
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     var homeContext = []
     for (var i = 0; i < movieArray.length; i++) {
-      if (movieArray[i].year >= parseInt(values[0]) && movieArray[i].year <= parseInt(values[1])) //loops through data and looks for numbers within the range
         var movieObj = {
           title: movieArray[i].title,
           moviePageURL: "/movies/" + movieArray[i]._id,
@@ -169,7 +166,7 @@ app.get('/Year_Range/:years', (req, res) => {
 
 app.get('/genres/:genre', (req, res) => {
   var que = req.params.genre
-  const url = 'http://localhost:5000/api/v1/movies?genre=' + que
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movies?genre=' + que
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     que.toString()
@@ -207,7 +204,7 @@ app.get('/tags/:tag', (req, res) => {
   if (que.toString().length == 0) {
     res.status(404).render('404pg')
   }
-  const url = 'http://localhost:5000/api/v1/movies?tag=' + que
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movies?tag=' + que
   axios.get(url).then(data => {
     var movieArray = data.data.movies
     que.toString()
@@ -243,7 +240,7 @@ app.get('/tags/:tag', (req, res) => {
 
 app.get('/movies/:id', (req, res) => {
   var movieId = req.params.id
-  const url = 'http://localhost:5000/api/v1/movies/id/' + movieId
+  const url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movie?id=' + movieId
   axios.get(url).then(data => {
     var movieObj = {
       posterUrl: data.data.poster,

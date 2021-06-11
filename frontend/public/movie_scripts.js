@@ -23,7 +23,7 @@ var tagAcceptButton = document.getElementsByClassName('modal-accept-button')[0]
 tagCancelButton.addEventListener('click', hideTagModal)
 tagCloseButton.addEventListener('click', hideTagModal)
 tagAcceptButton.addEventListener('click', () => {
-  var url = 'http://localhost:5000/api/v1/movies/tags'
+  var url = 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/tag-add'
   var request = new XMLHttpRequest()
   request.open('PUT', url)
   request.setRequestHeader('Content-Type', 'application/json')
@@ -67,7 +67,7 @@ addReviewButton.addEventListener('click', () => {
 
   reviewAcceptButton.addEventListener('click', () => {
     var request = new XMLHttpRequest()
-    request.open('POST', 'http://localhost:5000/api/v1/movies/review')
+    request.open('POST', 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/review-new')
     request.setRequestHeader('Content-Type', 'application/json')
 
 
@@ -133,7 +133,7 @@ Array.from(editButtons).forEach((button) => {
     var reviewAcceptButton = document.getElementsByClassName('modal-accept-button')[1]
     reviewAcceptButton.addEventListener('click', () => {
       var request = new XMLHttpRequest()
-      request.open('PUT', 'http://localhost:5000/api/v1/movies/review')
+      request.open('PUT', 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/review-edit')
       request.setRequestHeader('Content-Type', 'application/json')
 
 
@@ -179,16 +179,16 @@ Array.from(deleteButtons).forEach((button) => {
     var reviewAcceptButton = document.getElementsByClassName('modal-accept-button')[2]
     reviewAcceptButton.addEventListener('click', () => {
       var request = new XMLHttpRequest()
-      request.open('DELETE', 'http://localhost:5000/api/v1/movies/review?id=' + button.id)
+      request.open('DELETE', 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/review-delete?id=' + button.id)
       request.setRequestHeader('Content-Type', 'application/json')
 
 
       var reviewObj = {
         user_id: document.getElementById('delete-userid-input').value,
-        name: document.getElementById('delete-username-input').value
+        //name: document.getElementById('delete-username-input').value
       }
       requestBody = JSON.stringify(reviewObj)
-
+      console.log(button.id)
       request.addEventListener('load', event => {
         if (event.target.status !== 200) {
           var message = event.target.response;

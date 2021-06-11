@@ -14,7 +14,7 @@ admovie.addEventListener('click', () =>{
     if(plot1 && title1 && year1 && director1 && image1 && rating1 && genre1 && tag1) //checks for all input boxes to have infomation in them
     {
       var request = new XMLHttpRequest()
-      request.open('POST', 'http://localhost:5000/api/v1/movies/addMovie')
+      request.open('POST', 'https://us-west-2.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/tagflix-gprxr/service/movies/incoming_webhook/movie-new')
       request.setRequestHeader('Content-Type', 'application/json')
 
       var director_list = director1.split(",");//splits director names at commas
