@@ -4,7 +4,7 @@
 
 to load the frontend use the url
 
-http://localhost:3000/
+http://tagflix1.herokuapp.com/
 
 
 # How to get api working:
